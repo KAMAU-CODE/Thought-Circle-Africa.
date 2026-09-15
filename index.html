@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thought Circle Africa — Mental Health for the People Behind Africa's Progress</title>
+<meta name="description" content="Thought Circle Africa is a strategic mental-health and human wellbeing partner for Africa's private sector and professional communities." />
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/fraunces@5.0.0/index.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.min.css" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F3EC;
+    --cream-2:#EFE8DC;
+    --ink:#1A1613;
+    --ink-soft:#3A342E;
+    --muted:#7A6F63;
+    --line:#E4D9C7;
+    --terracotta:#B85C38;
+    --terracotta-deep:#9A4A2C;
+    --sage:#3D5A4C;
+    --gold:#C9A961;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-0.02em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+  @media(max-width:768px){.container{padding:0 20px}}
+
+  /* NAV */
+  nav.top{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(247,243,236,0.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s;
+  }
+  nav.top.scrolled{border-bottom-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1400px;margin:0 auto}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:20px;letter-spacing:-0.01em;cursor:pointer}
+  .logo-mark{
+    width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--terracotta) 0%, var(--terracotta-deep) 70%);
+    position:relative;
+    box-shadow:inset 0 0 0 2px var(--cream), 0 0 0 1px var(--terracotta-deep);
+  }
+  .logo-mark::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1.5px solid rgba(247,243,236,0.5)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--ink-soft);transition:color .2s;cursor:pointer}
+  .nav-links a:hover,.nav-links a.active{color:var(--terracotta)}
+  .nav-cta{
+    background:var(--ink);color:var(--cream)!important;
+    padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;
+    transition:background .2s, transform .2s;
+  }
+  .nav-cta:hover{background:var(--terracotta);transform:translateY(-1px);color:var(--cream)!important}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .menu-btn span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px 0;transition:.3s}
+  @media(max-width:960px){
+    .nav-links{
+      display:none;
+      position:fixed;top:70px;left:0;right:0;
+      background:var(--cream);
+      flex-direction:column;
+      padding:32px;gap:20px;
+      border-bottom:1px solid var(--line);
+      max-height:calc(100vh - 70px);
+      overflow-y:auto;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{font-size:17px;text-align:center;padding:8px 0}
+    .menu-btn{display:block}
+  }
+
+  /* PAGES */
+  .page{display:none;animation:fadeIn .5s ease}
+  .page.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  /* HERO */
+  .hero{padding:160px 0 100px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:48px}.hero{padding:130px 0 70px}}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--terracotta);margin-bottom:28px;font-weight:500;
+  }
+  .hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--terracotta)}
+  .hero h1{font-size:clamp(40px,6vw,76px);margin-bottom:28px;font-weight:300}
+  .hero h1 em{font-style:italic;color:var(--terracotta);font-weight:400}
+  .hero-sub{font-size:18px;color:var(--ink-soft);max-width:540px;margin-bottom:40px;line-height:1.65}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .btn-primary{
+    background:var(--ink);color:var(--cream);
+    padding:16px 30px;border-radius:100px;font-size:14px;font-weight:500;
+    border:none;cursor:pointer;transition:all .25s;
+    display:inline-flex;align-items:center;gap:10px;font-family:inherit;
+  }
+  .btn-primary:hover{background:var(--terracotta);transform:translateY(-2px);color:var(--cream)}
+  .btn-primary svg{width:14px;height:14px;transition:transform .25s}
+  .btn-primary:hover svg{transform:translateX(4px)}
+  .btn-secondary{
+    background:transparent;color:var(--ink);
+    padding:16px 30px;border-radius:100px;font-size:14px;font-weight:500;
+    border:1px solid var(--ink);cursor:pointer;transition:all .25s;
+    display:inline-flex;align-items:center;gap:10px;font-family:inherit;
+  }
+  .btn-secondary:hover{background:var(--ink);color:var(--cream)}
+  .hero-visual{
+    position:relative;aspect-ratio:4/5;
+    border-radius:200px 200px 24px 24px;overflow:hidden;
+    background:linear-gradient(135deg, #3D5A4C 0%, #2A3F35 40%, #1A1613 100%);
+  }
+  .hero-visual::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(201,169,97,0.35) 0%, transparent 45%),
+               radial-gradient(circle at 70% 80%, rgba(184,92,56,0.3) 0%, transparent 50%);
+  }
+  .hero-visual::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%, transparent 30%, rgba(26,22,19,0.4) 100%)}
+  .hero-figure{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2}
+  .hero-figure svg{width:70%;height:70%;opacity:0.9}
+  .hero-badge{
+    position:absolute;bottom:24px;left:24px;right:24px;z-index:3;
+    background:rgba(247,243,236,0.95);backdrop-filter:blur(10px);
+    padding:20px 24px;border-radius:16px;display:flex;align-items:center;gap:16px;
+  }
+  .hero-badge-num{font-family:'Fraunces',serif;font-size:36px;color:var(--terracotta);line-height:1}
+  .hero-badge-text{font-size:13px;color:var(--ink-soft);line-height:1.4}
+  .hero-badge-text strong{display:block;color:var(--ink);font-weight:500;font-size:14px;margin-bottom:2px}
+  .hero-deco{position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;border:1px solid var(--line);opacity:0.6;pointer-events:none}
+  .hero-deco-2{position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;border-radius:50%;border:1px solid var(--line);opacity:0.4;pointer-events:none}
+
+  /* SECTIONS */
+  section{padding:120px 0;position:relative}
+  @media(max-width:768px){section{padding:80px 0}}
+  .section-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:0.15em;text-transform:uppercase;
+    color:var(--terracotta);margin-bottom:20px;font-weight:500;
+  }
+  .section-eyebrow::before{content:"";width:24px;height:1px;background:var(--terracotta)}
+  .section-title{font-size:clamp(32px,4.5vw,56px);font-weight:300;margin-bottom:24px;max-width:900px}
+  .section-title em{font-style:italic;color:var(--terracotta)}
+  .section-lead{font-size:18px;color:var(--ink-soft);max-width:640px;line-height:1.7}
+
+  /* CARDS */
+  .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+  @media(max-width:900px){.audience-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.audience-grid{grid-template-columns:1fr}}
+  .audience-card{
+    background:var(--white);border:1px solid var(--line);
+    padding:36px 32px;border-radius:20px;transition:all .35s;position:relative;overflow:hidden;
+  }
+  .audience-card:hover{transform:translateY(-4px);border-color:var(--terracotta);box-shadow:0 20px 60px -20px rgba(26,22,19,0.15)}
+  .audience-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--terracotta);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+  .audience-card:hover::before{transform:scaleX(1)}
+  .audience-num{font-family:'Fraunces',serif;font-size:14px;color:var(--terracotta);margin-bottom:16px;letter-spacing:0.1em}
+  .audience-card h3{font-size:22px;margin-bottom:14px;font-weight:400}
+  .audience-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+  .audience-icon{width:44px;height:44px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--terracotta)}
+
+  /* DARK SECTIONS */
+  .corporate-section{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+  .corporate-section::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:var(--terracotta);opacity:0.08}
+  .corporate-section::after{content:"";position:absolute;bottom:-300px;left:-200px;width:700px;height:700px;border-radius:50%;background:var(--sage);opacity:0.08}
+  .corporate-section .section-title{color:var(--cream)}
+  .corporate-section .section-lead{color:rgba(247,243,236,0.7)}
+  .corporate-section .section-eyebrow{color:var(--gold)}
+  .corporate-section .section-eyebrow::before{background:var(--gold)}
+  .corp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(247,243,236,0.1);margin-top:60px;border:1px solid rgba(247,243,236,0.1);border-radius:20px;overflow:hidden;position:relative;z-index:1}
+  @media(max-width:768px){.corp-grid{grid-template-columns:1fr}}
+  .corp-item{background:var(--ink);padding:40px 36px;transition:background .3s}
+  .corp-item:hover{background:#24201C}
+  .corp-item h4{font-size:20px;color:var(--cream);margin-bottom:12px;font-weight:400;display:flex;align-items:center;gap:14px}
+  .corp-item h4::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
+  .corp-item p{font-size:14.5px;color:rgba(247,243,236,0.65);line-height:1.65}
+  .corp-cta-wrap{margin-top:60px;display:flex;justify-content:center;position:relative;z-index:1}
+  .btn-gold{background:var(--gold);color:var(--ink);padding:18px 36px;border-radius:100px;font-size:14px;font-weight:500;border:none;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:10px;font-family:inherit}
+  .btn-gold:hover{background:var(--cream);transform:translateY(-2px);color:var(--ink)}
+
+  /* APPROACH */
+  .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:60px;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  @media(max-width:900px){.approach-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.approach-grid{grid-template-columns:1fr}}
+  .approach-item{background:var(--cream);padding:44px 36px;transition:background .3s}
+  .approach-item:hover{background:var(--white)}
+  .approach-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--terracotta);opacity:0.4;line-height:1;margin-bottom:16px}
+  .approach-item h4{font-size:22px;margin-bottom:12px;font-weight:400}
+  .approach-item p{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+
+  /* CIRCLE */
+  .circle-section{background:var(--cream-2);text-align:center;position:relative;overflow:hidden}
+  .circle-visual{width:380px;height:380px;margin:60px auto;position:relative}
+  @media(max-width:600px){.circle-visual{width:280px;height:280px}}
+  .circle-ring{position:absolute;border-radius:50%;border:1px solid var(--terracotta);opacity:0.3;animation:pulse 6s ease-in-out infinite}
+  .circle-ring:nth-child(1){inset:0;animation-delay:0s}
+  .circle-ring:nth-child(2){inset:30px;animation-delay:1s;opacity:0.4}
+  .circle-ring:nth-child(3){inset:60px;animation-delay:2s;opacity:0.5}
+  .circle-ring:nth-child(4){inset:90px;animation-delay:3s;opacity:0.6}
+  .circle-ring:nth-child(5){inset:120px;animation-delay:4s;opacity:0.7}
+  .circle-core{
+    position:absolute;inset:150px;border-radius:50%;
+    background:radial-gradient(circle, var(--terracotta) 0%, var(--terracotta-deep) 100%);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cream);font-family:'Fraunces',serif;font-size:20px;font-style:italic;
+    box-shadow:0 0 60px rgba(184,92,56,0.3);
+  }
+  @media(max-width:600px){.circle-core{inset:110px;font-size:16px}}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:0.3}50%{transform:scale(1.05);opacity:0.5}}
+  .circle-values{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:700px;margin:40px auto 0}
+  .circle-values span{padding:10px 20px;background:var(--white);border:1px solid var(--line);border-radius:100px;font-size:14px;color:var(--ink-soft)}
+
+  /* PROBLEM */
+  .problem-section{background:var(--cream-2)}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+  @media(max-width:900px){.problem-grid{grid-template-columns:1fr;gap:48px}}
+  .problem-visual{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--sage) 0%, #2A3F35 50%, var(--ink) 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .problem-visual::before{content:"";position:absolute;inset:20px;border-radius:50%;border:1px solid rgba(247,243,236,0.2)}
+  .problem-visual::after{content:"";position:absolute;inset:60px;border-radius:50%;border:1px solid rgba(247,243,236,0.15)}
+  .problem-visual-text{color:var(--cream);text-align:center;z-index:2;padding:40px;font-family:'Fraunces',serif;font-size:24px;font-weight:300;line-height:1.3}
+  .problem-visual-text em{color:var(--gold);font-style:italic}
+  .problem-text p{font-size:17px;color:var(--ink-soft);margin-bottom:18px;line-height:1.75}
+  .problem-text p strong{color:var(--ink);font-weight:500}
+  .problem-metrics{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}
+  .problem-metrics span{padding:8px 16px;border:1px solid var(--line);border-radius:100px;font-size:13px;color:var(--muted)}
+  .problem-conclusion{font-family:'Fraunces',serif;font-size:22px;font-weight:300;color:var(--ink);line-height:1.5;margin-top:32px;padding-top:32px;border-top:1px solid var(--line)}
+
+  /* MH */
+  .mh-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px}
+  @media(max-width:900px){.mh-grid{grid-template-columns:1fr;gap:48px}}
+  .mh-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px 32px}
+  @media(max-width:500px){.mh-list{grid-template-columns:1fr}}
+  .mh-list li{font-size:15px;color:var(--ink-soft);padding:10px 0 10px 24px;position:relative;border-top:1px solid var(--line)}
+  .mh-list li::before{content:"";position:absolute;left:0;top:50%;width:10px;height:10px;border-radius:50%;background:var(--terracotta);transform:translateY(-50%);opacity:0.7}
+  .mh-highlight{background:var(--ink);color:var(--cream);padding:48px;border-radius:24px;margin-top:40px;position:relative;overflow:hidden}
+  .mh-highlight::before{content:"";position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:var(--terracotta);opacity:0.15}
+  .mh-highlight p{font-family:'Fraunces',serif;font-size:26px;font-weight:300;line-height:1.4;position:relative;z-index:1}
+  .mh-highlight p em{color:var(--gold);font-style:italic}
+
+  /* PARTNER */
+  .partner-section{background:var(--sage);color:var(--cream);position:relative;overflow:hidden}
+  .partner-section::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:var(--gold);opacity:0.1}
+  .partner-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+  @media(max-width:900px){.partner-grid{grid-template-columns:1fr;gap:48px}}
+  .partner-section .section-title{color:var(--cream)}
+  .partner-section .section-eyebrow{color:var(--gold)}
+  .partner-section .section-eyebrow::before{background:var(--gold)}
+  .partner-section .section-lead{color:rgba(247,243,236,0.75)}
+  .partner-models{list-style:none;margin:32px 0}
+  .partner-models li{padding:12px 0;font-size:15px;display:flex;align-items:center;gap:12px;color:rgba(247,243,236,0.85)}
+  .partner-models li::before{content:"→";color:var(--gold);font-family:'Fraunces',serif}
+  .partner-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .btn-cream{background:var(--cream);color:var(--ink);padding:16px 30px;border-radius:100px;font-size:14px;font-weight:500;border:none;cursor:pointer;transition:all .25s;font-family:inherit}
+  .btn-cream:hover{background:var(--gold);transform:translateY(-2px);color:var(--ink)}
+  .btn-outline-cream{background:transparent;color:var(--cream);padding:16px 30px;border-radius:100px;font-size:14px;font-weight:500;border:1px solid rgba(247,243,236,0.3);cursor:pointer;transition:all .25s;font-family:inherit}
+  .btn-outline-cream:hover{background:rgba(247,243,236,0.1);border-color:var(--cream)}
+  .partner-visual{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--gold) 0%, #8B7340 50%, var(--ink) 100%);position:relative;display:flex;align-items:center;justify-content:center}
+  .partner-visual::before{content:"";position:absolute;inset:30px;border-radius:50%;border:1px solid rgba(247,243,236,0.2)}
+  .partner-visual-text{color:var(--cream);text-align:center;padding:40px;z-index:2;font-family:'Fraunces',serif;font-size:28px;font-weight:300;line-height:1.3}
+  .partner-visual-text em{color:var(--gold);font-style:italic}
+
+  /* TRUST */
+  .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:start}
+  @media(max-width:900px){.trust-grid{grid-template-columns:1fr;gap:40px}}
+  .trust-card{background:var(--white);border:1px solid var(--line);padding:40px;border-radius:20px}
+  .trust-card h4{font-size:22px;margin-bottom:16px;font-weight:400}
+  .trust-card p{font-size:15px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px}
+  .trust-list{list-style:none;margin-top:20px}
+  .trust-list li{padding:10px 0;font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:12px}
+  .trust-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);flex-shrink:0}
+  .trust-list li.distinct::before{background:var(--terracotta)}
+
+  /* RESOURCES */
+  .resources-section{background:var(--cream-2)}
+  .resources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+  @media(max-width:900px){.resources-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.resources-grid{grid-template-columns:1fr}}
+  .resource-card{background:var(--white);padding:32px;border-radius:16px;border:1px solid var(--line);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+  .resource-card:hover{transform:translateY(-4px);border-color:var(--terracotta)}
+  .resource-card::after{content:"→";position:absolute;top:32px;right:32px;font-family:'Fraunces',serif;font-size:20px;color:var(--terracotta);opacity:0;transition:opacity .3s, transform .3s}
+  .resource-card:hover::after{opacity:1;transform:translateX(4px)}
+  .resource-card h4{font-size:19px;margin-bottom:10px;font-weight:400;padding-right:30px}
+  .resource-card p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+
+  /* CTA PATHWAYS */
+  .cta-section{background:var(--ink);color:var(--cream);text-align:center}
+  .cta-section .section-title{color:var(--cream);margin:0 auto 20px}
+  .cta-section .section-lead{color:rgba(247,243,236,0.7);margin:0 auto 60px}
+  .cta-pathways{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:1100px;margin:0 auto}
+  @media(max-width:900px){.cta-pathways{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:500px){.cta-pathways{grid-template-columns:1fr}}
+  .cta-pathway{background:rgba(247,243,236,0.04);border:1px solid rgba(247,243,236,0.1);padding:28px 20px;border-radius:16px;transition:all .3s;cursor:pointer;display:block}
+  .cta-pathway:hover{background:rgba(184,92,56,0.15);border-color:var(--terracotta);transform:translateY(-4px)}
+  .cta-pathway-label{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .cta-pathway h4{font-size:18px;color:var(--cream);font-weight:400;margin-bottom:8px}
+  .cta-pathway p{font-size:13px;color:rgba(247,243,236,0.6);line-height:1.5}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;margin-top:60px}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:48px}}
+  .about-visual{aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg, var(--cream-2) 0%, var(--line) 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .about-visual::before{content:"";position:absolute;inset:40px;border-radius:50%;border:1px solid var(--terracotta);opacity:0.3}
+  .about-visual::after{content:"";position:absolute;inset:80px;border-radius:50%;border:1px solid var(--terracotta);opacity:0.4}
+  .about-visual-core{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle, var(--terracotta) 0%, var(--terracotta-deep) 100%);display:flex;align-items:center;justify-content:center;color:var(--cream);font-family:'Fraunces',serif;font-size:18px;font-style:italic;text-align:center;padding:20px;line-height:1.3;box-shadow:0 20px 60px rgba(184,92,56,0.3);z-index:2}
+  .about-text p{font-size:17px;color:var(--ink-soft);margin-bottom:20px;line-height:1.75}
+  .about-text p strong{color:var(--ink);font-weight:500}
+  .about-statement{font-family:'Fraunces',serif;font-size:26px;font-weight:300;color:var(--ink);line-height:1.4;margin-top:32px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-statement em{color:var(--terracotta);font-style:italic}
+
+  /* FOUNDER */
+  .founder-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;margin-top:60px}
+  @media(max-width:900px){.founder-grid{grid-template-columns:1fr;gap:48px}}
+  .founder-visual{aspect-ratio:4/5;border-radius:24px;background:linear-gradient(160deg, #B85C38 0%, #9A4A2C 40%, #3D5A4C 100%);position:relative;overflow:hidden}
+  .founder-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%, rgba(201,169,97,0.4) 0%, transparent 40%),radial-gradient(circle at 20% 80%, rgba(26,22,19,0.4) 0%, transparent 50%)}
+  .founder-visual::after{content:"";position:absolute;bottom:40px;left:40px;right:40px;height:1px;background:rgba(247,243,236,0.3)}
+  .founder-visual-quote{position:absolute;bottom:60px;left:40px;right:40px;z-index:2;color:var(--cream);font-family:'Fraunces',serif;font-size:22px;font-weight:300;font-style:italic;line-height:1.4}
+  .founder-text h3{font-size:28px;margin-bottom:20px;font-weight:300}
+  .founder-list{list-style:none;margin:28px 0}
+  .founder-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink-soft);display:flex;align-items:center;gap:14px}
+  .founder-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--terracotta);flex-shrink:0}
+
+  /* FINAL */
+  .final-section{background:var(--ink);color:var(--cream);text-align:center;padding:140px 0;position:relative;overflow:hidden}
+  .final-section::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle, rgba(184,92,56,0.15) 0%, transparent 60%)}
+  .final-section h2{font-size:clamp(36px,5vw,64px);font-weight:300;max-width:1000px;margin:0 auto 32px;line-height:1.2;position:relative;z-index:1}
+  .final-section h2 em{color:var(--gold);font-style:italic}
+  .final-section p{font-size:18px;color:rgba(247,243,236,0.7);max-width:640px;margin:0 auto 48px;line-height:1.7;position:relative;z-index:1}
+  .final-cta{position:relative;z-index:1}
+
+  /* EMERGENCY */
+  .emergency{background:var(--cream-2);padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .emergency-inner{display:flex;align-items:center;gap:20px;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+  .emergency-icon{width:36px;height:36px;border-radius:50%;background:var(--white);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--terracotta);flex-shrink:0}
+  .emergency-inner strong{color:var(--ink);font-weight:500}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(247,243,236,0.7);padding:80px 0 40px}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(247,243,236,0.1)}
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px}}
+  @media(max-width:500px){.footer-grid{grid-template-columns:1fr}}
+  .footer-brand .logo{color:var(--cream);margin-bottom:20px}
+  .footer-brand p{font-size:14px;line-height:1.7;max-width:320px}
+  .footer-col h5{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500}
+  .footer-col ul{list-style:none}
+  .footer-col li{margin-bottom:10px}
+  .footer-col a{font-size:14px;transition:color .2s;cursor:pointer}
+  .footer-col a:hover{color:var(--cream)}
+  .footer-bottom{padding-top:32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px}
+
+  /* FORM */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+  .form-group{display:flex;flex-direction:column;gap:8px}
+  .form-group.full{grid-column:1/-1}
+  .form-group label{font-size:13px;color:var(--ink-soft);font-weight:500}
+  .form-group input,.form-group select,.form-group textarea{
+    padding:14px 18px;border:1px solid var(--line);border-radius:12px;
+    font-family:inherit;font-size:15px;background:var(--white);color:var(--ink);
+    transition:border-color .2s;
+  }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--terracotta)}
+  .form-group textarea{resize:vertical;min-height:140px}
+
+  /* STATS */
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:60px;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  @media(max-width:768px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+  .stat-item{background:var(--cream);padding:40px 32px;text-align:center}
+  .stat-num{font-family:'Fraunces',serif;font-size:48px;font-weight:300;color:var(--terracotta);line-height:1;margin-bottom:12px}
+  .stat-label{font-size:14px;color:var(--ink-soft);line-height:1.5}
+
+  /* BLOG */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+  @media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+  .blog-card{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:all .3s;cursor:pointer}
+  .blog-card:hover{transform:translateY(-4px);border-color:var(--terracotta)}
+  .blog-thumb{aspect-ratio:16/10;background:linear-gradient(135deg, var(--cream-2), var(--line));position:relative;overflow:hidden}
+  .blog-thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%, rgba(184,92,56,0.2), transparent 60%)}
+  .blog-thumb svg{position:absolute;inset:0;width:100%;height:100%;opacity:0.5}
+  .blog-body{padding:28px}
+  .blog-tag{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--terracotta);font-weight:500;margin-bottom:12px}
+  .blog-card h4{font-size:20px;margin-bottom:10px;font-weight:400;line-height:1.3}
+  .blog-card p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+
+  /* PROCESS */
+  .process-list{margin-top:60px;display:flex;flex-direction:column;gap:0}
+  .process-item{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--line);align-items:start}
+  @media(max-width:600px){.process-item{grid-template-columns:1fr;gap:16px}}
+  .process-num{font-family:'Fraunces',serif;font-size:40px;font-weight:300;color:var(--terracotta);line-height:1}
+  .process-item h4{font-size:22px;margin-bottom:10px;font-weight:400}
+  .process-item p{font-size:15px;color:var(--ink-soft);line-height:1.7}
+
+  /* PAGE HERO */
+  .page-hero{padding:160px 0 80px;position:relative;overflow:hidden}
+  .page-hero::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;border:1px solid var(--line);opacity:0.4;pointer-events:none}
+  .page-hero::after{content:"";position:absolute;bottom:-300px;left:-200px;width:500px;height:500px;border-radius:50%;border:1px solid var(--line);opacity:0.3;pointer-events:none}
+  .page-hero .container{position:relative;z-index:1}
+  .page-hero h1{font-size:clamp(40px,5.5vw,72px);margin-bottom:24px;font-weight:300;max-width:900px}
+  .page-hero h1 em{font-style:italic;color:var(--terracotta)}
+  .page-hero .section-lead{max-width:700px}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top" id="nav">
+  <div class="nav-inner">
+    <a class="logo" data-page="home">
+      <span class="logo-mark"></span>
+      <span>Thought Circle <em style="color:var(--terracotta);font-style:italic">Africa</em></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a data-page="home">Home</a>
+      <a data-page="about">About</a>
+      <a data-page="mental-health">Mental Health</a>
+      <a data-page="founders">For Founders</a>
+      <a data-page="organizations">For Organizations</a>
+      <a data-page="programs">Programs</a>
+      <a data-page="resources">Resources</a>
+      <a data-page="partner">Partner</a>
+      <a data-page="contact" class="nav-cta">Get Support</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ============ HOME PAGE ============ -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-deco-2"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="hero-eyebrow">Mental Health · Wellbeing · Africa</div>
+          <h1>Mental Health for the People Behind <em>Africa's Progress.</em></h1>
+          <p class="hero-sub">Supporting founders, leaders, professionals, healthcare workers, employees, and organizations to build healthier minds, healthier workplaces, and healthier futures.</p>
+          <div class="hero-ctas">
+            <a class="btn-primary" data-page="contact">Work With Us<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            <a class="btn-secondary" data-page="programs">Explore Our Approach</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-figure">
+            <svg viewBox="0 0 200 200" fill="none">
+              <circle cx="100" cy="100" r="90" stroke="rgba(247,243,236,0.2)" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="70" stroke="rgba(247,243,236,0.25)" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="50" stroke="rgba(247,243,236,0.3)" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="30" fill="rgba(201,169,97,0.3)"/>
+              <circle cx="100" cy="100" r="12" fill="rgba(247,243,236,0.9)"/>
+              <g stroke="rgba(247,243,236,0.4)" stroke-width="0.5" fill="none">
+                <path d="M100 10 L100 30M100 170 L100 190M10 100 L30 100M170 100 L190 100"/>
+                <path d="M35 35 L50 50M150 150 L165 165M165 35 L150 50M50 150 L35 165"/>
+              </g>
+            </svg>
+          </div>
+          <div class="hero-badge">
+            <div class="hero-badge-num">01</div>
+            <div class="hero-badge-text"><strong>Better people build better organizations.</strong>A strategic mental-health and wellbeing partner for Africa's private sector.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Understanding</div>
+        <h2 class="section-title">What Do We Mean by <em>Mental Health?</em></h2>
+        <p class="section-lead">Mental health is not simply the absence of mental illness. It is the psychological, emotional, and social wellbeing that shapes how we think, feel, decide, relate, work, lead, and recover.</p>
+      </div>
+      <div class="mh-grid">
+        <div class="reveal">
+          <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">Mental health exists on a spectrum. People can experience periods of stress, exhaustion, uncertainty, grief, burnout, anxiety, isolation, or emotional difficulty — without necessarily having a diagnosed mental illness.</p>
+          <ul class="mh-list">
+            <li>Think clearly</li><li>Feel balanced</li><li>Make decisions</li><li>Handle stress</li>
+            <li>Relate to others</li><li>Work effectively</li><li>Lead with clarity</li><li>Solve problems</li>
+            <li>Adapt to change</li><li>Recover from difficulty</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <div class="mh-highlight"><p>You do not have to wait until you are in crisis to care about your <em>mental health</em>. Early support, awareness, and the right structures can change everything.</p></div>
+          <p style="font-size:15px;color:var(--muted);margin-top:24px;line-height:1.7">We believe in normalising the conversation — in workplaces, in leadership, in entrepreneurship, in healthcare, and in everyday professional life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Why This Matters</div>
+        <h2 class="section-title">Behind Every Organization Are <em>Human Beings.</em></h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-visual reveal"><div class="problem-visual-text">Behind every metric, every strategy, every outcome — there is a <em>person</em>.</div></div>
+        <div class="problem-text reveal">
+          <p>Businesses and institutions measure what matters to them: <strong>revenue, productivity, growth, performance, innovation, efficiency.</strong></p>
+          <p>But behind every metric is a person. Founders carry uncertainty. Executives carry responsibility. Healthcare professionals carry the weight of caring for others.</p>
+          <div class="problem-metrics"><span>Revenue</span><span>Productivity</span><span>Growth</span><span>Performance</span><span>Innovation</span><span>Efficiency</span></div>
+          <div class="problem-conclusion">Thought Circle Africa exists to help organizations address the <em style="color:var(--terracotta);font-style:italic">human side of performance.</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">Who We Support</div>
+        <h2 class="section-title" style="margin:0 auto 20px">People at the centre of <em>Africa's working world.</em></h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal"><div class="audience-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="audience-num">01</div><h3>Founders &amp; Entrepreneurs</h3><p>Support for people building businesses while navigating uncertainty, pressure, failure, growth, identity, isolation, and responsibility.</p></div>
+        <div class="audience-card reveal"><div class="audience-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2"/></svg></div><div class="audience-num">02</div><h3>CEOs &amp; Executives</h3><p>Confidential support for leaders carrying complex organizational, financial, strategic, and people-related responsibilities.</p></div>
+        <div class="audience-card reveal"><div class="audience-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div><div class="audience-num">03</div><h3>Healthcare Professionals</h3><p>Mental-health and wellbeing support for professionals who spend their careers caring for others.</p></div>
+        <div class="audience-card reveal"><div class="audience-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2M16 3a4 4 0 010 8M21 21v-2a4 4 0 00-3-3.87"/></svg></div><div class="audience-num">04</div><h3>Employees &amp; Teams</h3><p>Programs that help organizations create healthier, psychologically supportive workplaces.</p></div>
+        <div class="audience-card reveal"><div class="audience-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><div class="audience-num">05</div><h3>Organizations &amp; Corporates</h3><p>Strategic mental-health and wellbeing solutions designed around organizational needs.</p></div>
+        <div class="audience-card reveal"><div class="audience-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div><div class="audience-num">06</div><h3>Young Professionals</h3><p>Early support and mental-health education for people navigating demanding careers and major life transitions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="corporate-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Corporate Solutions</div>
+        <h2 class="section-title">Mental Health Is a <em style="color:var(--gold)">Business Issue</em> Too.</h2>
+        <p class="section-lead">Organizations cannot build sustainable performance while ignoring the wellbeing of the people responsible for creating that performance.</p>
+      </div>
+      <div class="corp-grid">
+        <div class="corp-item reveal"><h4>Workplace Mental Health Programs</h4><p>Mental-health awareness, education, prevention, and support initiatives tailored to your workforce.</p></div>
+        <div class="corp-item reveal"><h4>Employee Wellbeing Programs</h4><p>Structured wellbeing initiatives designed around the real needs of your employees.</p></div>
+        <div class="corp-item reveal"><h4>Leadership Wellbeing</h4><p>Confidential support and wellbeing programs for executives, managers, and organizational leaders.</p></div>
+        <div class="corp-item reveal"><h4>Founder Support</h4><p>Mental-health support specifically designed for entrepreneurs and business builders.</p></div>
+        <div class="corp-item reveal"><h4>Healthcare Worker Support</h4><p>Programs addressing emotional strain, professional pressure, compassion fatigue, and wellbeing.</p></div>
+        <div class="corp-item reveal"><h4>Mental Health Training</h4><p>Training for managers, HR teams, leaders, and employees to understand mental health.</p></div>
+        <div class="corp-item reveal"><h4>Organizational Assessments</h4><p>Help organizations understand mental-health and wellbeing challenges within their workforce.</p></div>
+        <div class="corp-item reveal"><h4>Referral &amp; Support Pathways</h4><p>Structured pathways connecting individuals to appropriate professional mental-health services.</p></div>
+      </div>
+      <div class="corp-cta-wrap reveal"><a class="btn-gold" data-page="organizations">Build a Healthier Workplace<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+    </div>
+  </section>
+
+  <section class="circle-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">The Concept</div>
+        <h2 class="section-title" style="margin:0 auto 20px">Why "Thought <em>Circle</em>"?</h2>
+        <p class="section-lead" style="margin:0 auto">Thoughts influence emotions, decisions, relationships, leadership, and behaviour. The "Circle" represents the space where reflection, conversation, and support come together.</p>
+      </div>
+      <div class="circle-visual reveal">
+        <div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div>
+        <div class="circle-core">Pause.<br>Reflect.<br>Move forward.</div>
+      </div>
+      <div class="circle-values reveal"><span>Reflection</span><span>Connection</span><span>Conversation</span><span>Community</span><span>Support</span><span>Continuous Growth</span></div>
+    </div>
+  </section>
+
+  <section class="final-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>Africa is <em>building.</em><br>Let's make sure the people behind it are not forgotten.</h2>
+        <p>Behind every business, institution, hospital, organization, and idea are people carrying the weight of making it happen. Thought Circle Africa exists to make sure those people are seen, supported, and able to thrive.</p>
+        <div class="final-cta"><a class="btn-gold" data-page="contact">Let's Build Healthier Minds. Healthier Workplaces. A Healthier Africa.<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT PAGE ============ -->
+<div class="page" id="page-about">
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow">About Us</div>
+        <h1>A bridge between people, organizations, and the <em>support they need.</em></h1>
+        <p class="section-lead">Thought Circle Africa is being built around a simple belief: Africa's growth must include the wellbeing of the people driving it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal"><div class="about-visual-core">Thought<br>Circle</div></div>
+        <div class="about-text reveal">
+          <p>We are an African mental-health and human-support organization, focused on helping people and organizations navigate the psychological, emotional, and human challenges associated with work, leadership, entrepreneurship, healthcare, and business growth.</p>
+          <p>Our ambition is to contribute to healthier professional communities — by connecting mental-health awareness, support, community, professional services, and organizational wellbeing into one coherent, trusted ecosystem.</p>
+          <div class="about-statement">We are not only a therapy company. We are a <em>strategic mental-health and human wellbeing partner</em> for Africa's private sector and professional communities.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">Our Beliefs</div>
+        <h2 class="section-title" style="margin:0 auto 20px">What we stand <em>for.</em></h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal"><div class="audience-num">01</div><h3>People First</h3><p>Behind every metric, strategy, and outcome is a human being. Sustainable performance starts with human wellbeing.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">02</div><h3>Early Support</h3><p>You do not have to wait until you are in crisis to care about your mental health. Prevention and early support change everything.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">03</div><h3>Dignity &amp; Trust</h3><p>Conversations involving mental health require dignity, privacy, respect, and appropriate professional boundaries.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">04</div><h3>Evidence-Informed</h3><p>Our work is grounded in research, professional standards, and an honest understanding of what support can and cannot do.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">05</div><h3>African Context</h3><p>We understand the unique cultural, economic, and social realities of professional life in Africa.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">06</div><h3>Collective Growth</h3><p>Better people build better organizations. Healthier minds build healthier workplaces and a healthier Africa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Our Vision</div>
+        <h2 class="section-title">A future where professional growth and mental wellbeing <em>grow together.</em></h2>
+        <p class="section-lead">We envision a continent where founders, leaders, healthcare workers, and employees can build, lead, serve, and thrive — without sacrificing their mental health in the process.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item reveal"><div class="stat-num">01</div><div class="stat-label">Mental health awareness across African workplaces</div></div>
+        <div class="stat-item reveal"><div class="stat-num">02</div><div class="stat-label">Structured support for founders and leaders</div></div>
+        <div class="stat-item reveal"><div class="stat-num">03</div><div class="stat-label">Partnerships with organizations across the continent</div></div>
+        <div class="stat-item reveal"><div class="stat-num">04</div><div class="stat-label">A growing ecosystem of professionals and communities</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>Better people build <em>better organizations.</em></h2>
+        <p>Join us in building a future where the people driving Africa's progress are supported, seen, and able to thrive.</p>
+        <div class="final-cta"><a class="btn-gold" data-page="contact">Work With Us<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ MENTAL HEALTH PAGE ============ -->
+<div class="page" id="page-mental-health">
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow">Mental Health</div>
+        <h1>Understanding <em>mental health</em> — clearly, honestly, without stigma.</h1>
+        <p class="section-lead">Mental health is not simply the absence of mental illness. It is the psychological, emotional, and social wellbeing that shapes how we think, feel, decide, relate, work, lead, and recover.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="mh-grid">
+        <div class="reveal">
+          <div class="section-eyebrow">The Spectrum</div>
+          <h2 class="section-title" style="font-size:clamp(28px,4vw,44px)">Mental health exists on a <em>spectrum.</em></h2>
+          <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">People can experience periods of stress, exhaustion, uncertainty, grief, burnout, anxiety, isolation, or emotional difficulty — without necessarily having a diagnosed mental illness.</p>
+          <p style="font-size:16px;color:var(--ink-soft);line-height:1.75">Just as physical health fluctuates, so does mental health. Some days we feel resilient. Other days we feel overwhelmed. Both are part of being human.</p>
+        </div>
+        <div class="reveal">
+          <div class="mh-highlight"><p>You do not have to wait until you are in crisis to care about your <em>mental health</em>. Early support, awareness, and the right structures can change everything.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">What It Influences</div>
+        <h2 class="section-title">Mental health shapes almost <em>everything we do.</em></h2>
+      </div>
+      <ul class="mh-list" style="margin-top:40px">
+        <li>How we think clearly</li><li>How we feel balanced</li><li>How we make decisions</li><li>How we handle stress</li>
+        <li>How we relate to others</li><li>How we work effectively</li><li>How we lead with clarity</li><li>How we solve problems</li>
+        <li>How we adapt to change</li><li>How we recover from difficulty</li><li>How we show up at home</li><li>How we pursue our goals</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-eyebrow" style="justify-content:center">Common Experiences</div>
+        <h2 class="section-title" style="margin:0 auto 20px">You are not <em>alone</em> in what you're feeling.</h2>
+        <p class="section-lead" style="margin:0 auto">These experiences are more common than people think. Recognizing them is the first step toward support.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal"><div class="audience-num">01</div><h3>Stress &amp; Pressure</h3><p>The constant weight of responsibilities, deadlines, expectations, and demands on your time and energy.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">02</div><h3>Burnout</h3><p>Emotional, physical, and mental exhaustion caused by prolonged stress — often in work or caregiving roles.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">03</div><h3>Anxiety</h3><p>Persistent worry, restlessness, or fear that affects your ability to focus, sleep, or feel at ease.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">04</div><h3>Isolation</h3><p>Feeling alone in your struggles, especially when you're expected to be strong or have it all together.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">05</div><h3>Grief &amp; Loss</h3><p>Processing difficult experiences, transitions, or the loss of people, roles, or versions of yourself.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">06</div><h3>Uncertainty</h3><p>Navigating periods where the future feels unclear, unstable, or beyond your control.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="circle-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">Our Stance</div>
+        <h2 class="section-title" style="margin:0 auto 20px">Seeking support is a sign of <em>awareness</em>, not weakness.</h2>
+        <p class="section-lead" style="margin:0 auto">We believe in normalising the conversation — in workplaces, in leadership, in entrepreneurship, in healthcare, and in everyday professional life.</p>
+      </div>
+      <div class="circle-visual reveal">
+        <div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div>
+        <div class="circle-core">Understand.<br>Identify.<br>Support.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Learn More</div>
+        <h2 class="section-title">Explore our <em>resources.</em></h2>
+        <p class="section-lead">Simple, honest, practical resources — written without jargon or stigma.</p>
+      </div>
+      <div class="resources-grid">
+        <div class="resource-card reveal" data-page="resources"><h4>Mental Health Basics</h4><p>Simple explanations of mental-health concepts, written without jargon or stigma.</p></div>
+        <div class="resource-card reveal" data-page="resources"><h4>Understanding Burnout</h4><p>What burnout looks like, why it happens, and how to recognize it early.</p></div>
+        <div class="resource-card reveal" data-page="resources"><h4>Stress &amp; Performance</h4><p>How stress affects decision-making, leadership, and long-term performance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>Let's talk about <em>mental health</em> — honestly.</h2>
+        <p>Whether you're seeking support for yourself, your team, or your organization, we're here to help.</p>
+        <div class="final-cta"><a class="btn-gold" data-page="contact">Get Support<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FOUNDERS PAGE ============ -->
+<div class="page" id="page-founders">
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow">For Founders</div>
+        <h1>Building a business shouldn't mean <em>losing yourself.</em></h1>
+        <p class="section-lead">Thought Circle Africa offers a supportive structure for founders at different stages — a space to pause, reflect, and move forward with greater clarity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="founder-grid">
+        <div class="founder-visual reveal">
+          <div class="founder-visual-quote">"The hardest part of building something is carrying it — alone, in silence, without anyone asking how you are."</div>
+        </div>
+        <div class="founder-text reveal">
+          <div class="section-eyebrow">The Reality</div>
+          <h3 style="font-size:clamp(28px,3.5vw,40px);margin-bottom:20px;font-weight:300">The unique pressures of building something from nothing.</h3>
+          <p style="font-size:16px;color:var(--ink-soft);line-height:1.75">Founders carry a particular kind of weight. The financial uncertainty. The fear of failure. The loneliness of leadership. The constant responsibility. The way identity becomes tied to the business. The difficulty of asking for help.</p>
+          <ul class="founder-list">
+            <li>Financial uncertainty</li><li>Fear of failure</li><li>Loneliness and isolation</li>
+            <li>Decision fatigue</li><li>Leadership pressure</li><li>Investor and stakeholder expectations</li>
+            <li>Relationship strain</li><li>Identity tied to the business</li><li>Constant responsibility</li><li>Difficulty asking for help</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">Founder Support</div>
+        <h2 class="section-title" style="margin:0 auto 20px">How we <em>support founders.</em></h2>
+        <p class="section-lead" style="margin:0 auto">Structured, confidential, and designed specifically for the realities of entrepreneurship.</p>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal"><div class="audience-num">01</div><h3>1:1 Support Conversations</h3><p>Confidential spaces to talk through the pressures, decisions, and emotional weight of building a business.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">02</div><h3>Founder Circles</h3><p>Small, curated groups of founders who meet regularly to reflect, share, and support each other.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">03</div><h3>Wellbeing Programs</h3><p>Structured programs addressing burnout, stress, decision fatigue, and the psychological demands of entrepreneurship.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">04</div><h3>Referral Pathways</h3><p>Connection to qualified mental-health professionals when specialized care is needed.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">05</div><h3>Resources &amp; Tools</h3><p>Practical resources, reflective exercises, and frameworks for navigating the founder journey.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">06</div><h3>Community</h3><p>A growing community of founders who understand what it means to build something from nothing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Who This Is For</div>
+        <h2 class="section-title">Founders at <em>every stage.</em></h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal"><div class="process-num">01</div><div><h4>Pre-Seed &amp; Idea Stage</h4><p>Navigating uncertainty, self-doubt, and the pressure of turning an idea into something real.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">02</div><div><h4>Early Stage</h4><p>Managing the intensity of building, hiring, fundraising, and finding product-market fit.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">03</div><div><h4>Growth Stage</h4><p>Scaling teams, managing complexity, and carrying the weight of organizational responsibility.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">04</div><div><h4>Mature Stage</h4><p>Sustaining leadership, managing burnout, and navigating the long arc of building something enduring.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>You don't have to carry it <em>alone.</em></h2>
+        <p>Thought Circle Africa is here to support founders at every stage of the journey.</p>
+        <div class="final-cta"><a class="btn-gold" data-page="contact">Explore Founder Support<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ORGANIZATIONS PAGE ============ -->
+<div class="page" id="page-organizations">
+  <section class="page-hero" style="background:var(--ink);color:var(--cream)">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow" style="color:var(--gold)"><span style="display:inline-block;width:32px;height:1px;background:var(--gold)"></span>For Organizations</div>
+        <h1 style="color:var(--cream)">Mental health is a <em style="color:var(--gold)">business issue</em> too.</h1>
+        <p class="section-lead" style="color:rgba(247,243,236,0.7)">Organizations cannot build sustainable performance while ignoring the wellbeing of the people responsible for creating that performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">The Case</div>
+        <h2 class="section-title">Why organizations need to take mental health <em>seriously.</em></h2>
+        <p class="section-lead">Mental health affects decision-making, productivity, relationships, leadership, employee retention, workplace culture, and organizational sustainability.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item reveal"><div class="stat-num">76%</div><div class="stat-label">of employees report mental health impacts their work</div></div>
+        <div class="stat-item reveal"><div class="stat-num">1 in 4</div><div class="stat-label">professionals experience burnout at some point</div></div>
+        <div class="stat-item reveal"><div class="stat-num">3x</div><div class="stat-label">ROI on workplace wellbeing investments</div></div>
+        <div class="stat-item reveal"><div class="stat-num">50%</div><div class="stat-label">reduction in absenteeism with proper support</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Corporate Solutions</div>
+        <h2 class="section-title">Programs designed around <em>your organization.</em></h2>
+      </div>
+      <div class="corp-grid" style="background:var(--line);border-color:var(--line)">
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Workplace Mental Health Programs</h4><p style="color:var(--ink-soft)">Mental-health awareness, education, prevention, and support initiatives tailored to your workforce.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Employee Wellbeing Programs</h4><p style="color:var(--ink-soft)">Structured wellbeing initiatives designed around the real needs of your employees.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Leadership Wellbeing</h4><p style="color:var(--ink-soft)">Confidential support and wellbeing programs for executives, managers, and organizational leaders.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Founder Support</h4><p style="color:var(--ink-soft)">Mental-health support specifically designed for entrepreneurs and business builders.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Healthcare Worker Support</h4><p style="color:var(--ink-soft)">Programs addressing emotional strain, professional pressure, compassion fatigue, and wellbeing.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Mental Health Training</h4><p style="color:var(--ink-soft)">Training for managers, HR teams, leaders, and employees to understand mental health.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Organizational Assessments</h4><p style="color:var(--ink-soft)">Help organizations understand mental-health and wellbeing challenges within their workforce.</p></div>
+        <div class="corp-item reveal" style="background:var(--cream-2)"><h4 style="color:var(--ink)">Referral &amp; Support Pathways</h4><p style="color:var(--ink-soft)">Structured pathways connecting individuals to appropriate professional mental-health services.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Our Process</div>
+        <h2 class="section-title">How we work with <em>organizations.</em></h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal"><div class="process-num">01</div><div><h4>Discovery</h4><p>We begin by understanding your organization, your workforce, your culture, and your goals.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">02</div><div><h4>Assessment</h4><p>We help you understand the mental-health and wellbeing landscape within your organization.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">03</div><div><h4>Design</h4><p>We design programs and initiatives aligned with your specific needs and organizational context.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">04</div><div><h4>Implementation</h4><p>We roll out programs with care, clarity, and appropriate communication across your organization.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">05</div><div><h4>Support</h4><p>We provide ongoing support, check-ins, and adjustments as your organization evolves.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">06</div><div><h4>Growth</h4><p>We help you build sustainable mental-health and wellbeing structures for the long term.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-section">
+    <div class="container">
+      <div class="partner-grid">
+        <div class="reveal">
+          <div class="section-eyebrow">Partnership</div>
+          <h2 class="section-title">Partner With <em style="color:var(--gold)">Thought Circle Africa.</em></h2>
+          <p class="section-lead">Organizations can work with Thought Circle Africa to develop mental-health and wellbeing initiatives aligned with their workforce, leadership structure, and organizational goals.</p>
+          <ul class="partner-models">
+            <li>Employee wellbeing programs</li><li>Corporate mental-health campaigns</li>
+            <li>Leadership support</li><li>Workshops and training</li>
+            <li>Mental-health education</li><li>Team wellbeing sessions</li>
+            <li>Organizational assessments</li><li>Referral pathways</li>
+            <li>Long-term wellbeing partnerships</li>
+          </ul>
+          <div class="partner-ctas">
+            <a class="btn-cream" data-page="contact">Talk to Our Team</a>
+            <a class="btn-outline-cream" data-page="contact">Request a Corporate Program</a>
+          </div>
+        </div>
+        <div class="partner-visual reveal"><div class="partner-visual-text">Let's build <em>healthier minds,</em> healthier workplaces, and a healthier Africa — together.</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PROGRAMS PAGE ============ -->
+<div class="page" id="page-programs">
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow">Our Programs</div>
+        <h1>From awareness to support. From support to <em>clarity.</em></h1>
+        <p class="section-lead">A simple, structured framework for helping people and organizations move from pressure to clarity — with dignity and care at every stage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Our Approach</div>
+        <h2 class="section-title">The Thought Circle <em>framework.</em></h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal"><div class="process-num">01</div><div><h4>Understand</h4><p>Help people and organizations understand mental health and the pressures affecting them. Education is the foundation of everything we do.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">02</div><div><h4>Identify</h4><p>Recognize stress, emotional strain, burnout, isolation, workplace challenges, and other warning signs early — before they become crises.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">03</div><div><h4>Support</h4><p>Provide safe, confidential, structured support and practical wellbeing resources. A space to pause, reflect, and be heard.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">04</div><div><h4>Refer</h4><p>Connect people who require specialized care with appropriate qualified professionals and services. We are clear about what we do — and what we don't.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">05</div><div><h4>Build</h4><p>Help individuals and organizations develop healthier habits, cultures, systems, and support structures for the long term.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">06</div><div><h4>Grow</h4><p>Create conditions where people can function, lead, work, and build with greater clarity and resilience.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:800px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">Program Categories</div>
+        <h2 class="section-title" style="margin:0 auto 20px">Programs for <em>every audience.</em></h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal"><div class="audience-num">For Individuals</div><h3>Personal Support</h3><p>1:1 support conversations, wellbeing resources, and referral pathways for individuals seeking help.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">For Founders</div><h3>Founder Support</h3><p>Programs designed specifically for entrepreneurs navigating the unique pressures of building a business.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">For Leaders</div><h3>Leadership Wellbeing</h3><p>Confidential support and wellbeing programs for executives, managers, and organizational leaders.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">For Teams</div><h3>Team Wellbeing</h3><p>Programs that help teams build psychologically supportive, healthy, and high-performing cultures.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">For Organizations</div><h3>Corporate Programs</h3><p>Strategic mental-health and wellbeing solutions designed around organizational needs and goals.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">For Healthcare</div><h3>Healthcare Worker Support</h3><p>Programs addressing emotional strain, professional pressure, compassion fatigue, and wellbeing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="circle-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">The Thought Circle</div>
+        <h2 class="section-title" style="margin:0 auto 20px">A space to <em>pause, reflect,</em> and move forward.</h2>
+        <p class="section-lead" style="margin:0 auto">Thought Circle Africa creates spaces where people can pause, reflect, speak, seek support, and move forward with greater clarity.</p>
+      </div>
+      <div class="circle-visual reveal">
+        <div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div><div class="circle-ring"></div>
+        <div class="circle-core">Pause.<br>Reflect.<br>Move forward.</div>
+      </div>
+      <div class="circle-values reveal"><span>Reflection</span><span>Connection</span><span>Conversation</span><span>Community</span><span>Support</span><span>Continuous Growth</span></div>
+    </div>
+  </section>
+
+  <section class="final-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>Ready to explore our <em>programs?</em></h2>
+        <p>Whether you're an individual, a founder, or an organization, we have a pathway for you.</p>
+        <div class="final-cta"><a class="btn-gold" data-page="contact">Get Started<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ RESOURCES PAGE ============ -->
+<div class="page" id="page-resources">
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow">Resources</div>
+        <h1>A growing library for <em>clearer thinking.</em></h1>
+        <p class="section-lead">Simple, honest, practical resources — for individuals, teams, leaders, and organizations. Written without jargon or stigma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Resource Categories</div>
+        <h2 class="section-title">Explore by <em>topic.</em></h2>
+      </div>
+      <div class="resources-grid">
+        <div class="resource-card reveal"><h4>Mental Health</h4><p>Simple explanations of mental-health concepts, written without jargon or stigma.</p></div>
+        <div class="resource-card reveal"><h4>Founder Wellbeing</h4><p>Resources addressing the psychological realities of entrepreneurship and building.</p></div>
+        <div class="resource-card reveal"><h4>Workplace Wellbeing</h4><p>Resources for employers, HR teams, and employees building healthier workplaces.</p></div>
+        <div class="resource-card reveal"><h4>Leadership</h4><p>Resources for executives and managers navigating pressure and responsibility.</p></div>
+        <div class="resource-card reveal"><h4>Healthcare Professionals</h4><p>Wellbeing resources for those who spend their careers caring for others.</p></div>
+        <div class="resource-card reveal"><h4>Clarity</h4><p>Reflective tools, questions, writing exercises, and practical resources for clearer thinking.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Latest Resources</div>
+        <h2 class="section-title">From our <em>library.</em></h2>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card reveal">
+          <div class="blog-thumb"><svg viewBox="0 0 400 250"><circle cx="200" cy="125" r="80" fill="none" stroke="rgba(184,92,56,0.3)" stroke-width="1"/><circle cx="200" cy="125" r="50" fill="none" stroke="rgba(184,92,56,0.4)" stroke-width="1"/><circle cx="200" cy="125" r="20" fill="rgba(184,92,56,0.2)"/></svg></div>
+          <div class="blog-body"><div class="blog-tag">Mental Health</div><h4>Understanding the Mental Health Spectrum</h4><p>Mental health exists on a spectrum. Here's what that means, and why it matters for how we think about support.</p></div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-thumb"><svg viewBox="0 0 400 250"><circle cx="200" cy="125" r="80" fill="none" stroke="rgba(61,90,76,0.3)" stroke-width="1"/><circle cx="200" cy="125" r="50" fill="none" stroke="rgba(61,90,76,0.4)" stroke-width="1"/><circle cx="200" cy="125" r="20" fill="rgba(61,90,76,0.2)"/></svg></div>
+          <div class="blog-body"><div class="blog-tag">Founder Wellbeing</div><h4>The Loneliness of Building</h4><p>Why founders often feel alone — and what can be done about it. A reflection on the emotional reality of entrepreneurship.</p></div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-thumb"><svg viewBox="0 0 400 250"><circle cx="200" cy="125" r="80" fill="none" stroke="rgba(201,169,97,0.3)" stroke-width="1"/><circle cx="200" cy="125" r="50" fill="none" stroke="rgba(201,169,97,0.4)" stroke-width="1"/><circle cx="200" cy="125" r="20" fill="rgba(201,169,97,0.2)"/></svg></div>
+          <div class="blog-body"><div class="blog-tag">Workplace Wellbeing</div><h4>Why Mental Health Is a Business Issue</h4><p>Organizations cannot build sustainable performance while ignoring the wellbeing of the people creating that performance.</p></div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-thumb"><svg viewBox="0 0 400 250"><circle cx="200" cy="125" r="80" fill="none" stroke="rgba(184,92,56,0.3)" stroke-width="1"/><circle cx="200" cy="125" r="50" fill="none" stroke="rgba(184,92,56,0.4)" stroke-width="1"/><circle cx="200" cy="125" r="20" fill="rgba(184,92,56,0.2)"/></svg></div>
+          <div class="blog-body"><div class="blog-tag">Leadership</div><h4>The Weight of Leadership</h4><p>What leaders carry — and why supporting their mental health matters for the entire organization.</p></div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-thumb"><svg viewBox="0 0 400 250"><circle cx="200" cy="125" r="80" fill="none" stroke="rgba(61,90,76,0.3)" stroke-width="1"/><circle cx="200" cy="125" r="50" fill="none" stroke="rgba(61,90,76,0.4)" stroke-width="1"/><circle cx="200" cy="125" r="20" fill="rgba(61,90,76,0.2)"/></svg></div>
+          <div class="blog-body"><div class="blog-tag">Healthcare</div><h4>Caring for Those Who Care for Others</h4><p>Healthcare professionals carry immense weight. Here's why their wellbeing matters — and how to support it.</p></div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-thumb"><svg viewBox="0 0 400 250"><circle cx="200" cy="125" r="80" fill="none" stroke="rgba(201,169,97,0.3)" stroke-width="1"/><circle cx="200" cy="125" r="50" fill="none" stroke="rgba(201,169,97,0.4)" stroke-width="1"/><circle cx="200" cy="125" r="20" fill="rgba(201,169,97,0.2)"/></svg></div>
+          <div class="blog-body"><div class="blog-tag">Clarity</div><h4>Questions for Reflection</h4><p>Simple, honest questions to help you pause, reflect, and gain clarity on where you are and where you're going.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-eyebrow" style="justify-content:center">Stay Updated</div>
+        <h2 class="section-title" style="margin:0 auto 20px">Join the <em>Thought Circle.</em></h2>
+        <p class="section-lead" style="margin:0 auto">Get resources, reflections, and updates delivered to your inbox. No spam. Just clarity.</p>
+        <form class="form-grid" style="max-width:600px;margin:40px auto 0" onsubmit="event.preventDefault();alert('Thank you for subscribing to the Thought Circle.')">
+          <div class="form-group full"><input type="email" placeholder="Your email address" required></div>
+          <div class="form-group full"><button type="submit" class="btn-primary" style="justify-content:center">Subscribe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PARTNER PAGE ============ -->
+<div class="page" id="page-partner">
+  <section class="page-hero" style="background:var(--sage);color:var(--cream)">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow" style="color:var(--gold)"><span style="display:inline-block;width:32px;height:1px;background:var(--gold)"></span>Partner With Us</div>
+        <h1 style="color:var(--cream)">Partner With <em style="color:var(--gold)">Thought Circle Africa.</em></h1>
+        <p class="section-lead" style="color:rgba(247,243,236,0.75)">Organizations can work with Thought Circle Africa to develop mental-health and wellbeing initiatives aligned with their workforce, leadership structure, and organizational goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Partnership Models</div>
+        <h2 class="section-title">Ways we can <em>work together.</em></h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card reveal"><div class="audience-num">01</div><h3>Employee Wellbeing Programs</h3><p>Structured wellbeing initiatives designed around the real needs of your employees.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">02</div><h3>Corporate Mental-Health Campaigns</h3><p>Awareness campaigns that normalize mental health conversations across your organization.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">03</div><h3>Leadership Support</h3><p>Confidential support and wellbeing programs for executives, managers, and organizational leaders.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">04</div><h3>Workshops &amp; Training</h3><p>Interactive sessions for managers, HR teams, leaders, and employees on mental health awareness.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">05</div><h3>Mental-Health Education</h3><p>Educational programs that build understanding and reduce stigma across your workforce.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">06</div><h3>Team Wellbeing Sessions</h3><p>Facilitated sessions that help teams build psychologically supportive cultures.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">07</div><h3>Organizational Assessments</h3><p>Help organizations understand mental-health and wellbeing challenges within their workforce.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">08</div><h3>Referral Pathways</h3><p>Structured pathways connecting individuals to appropriate professional mental-health services.</p></div>
+        <div class="audience-card reveal"><div class="audience-num">09</div><h3>Long-Term Partnerships</h3><p>Ongoing wellbeing partnerships that grow and evolve with your organization.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Why Partner With Us</div>
+        <h2 class="section-title">What makes Thought Circle Africa <em>different.</em></h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item reveal"><div class="process-num">01</div><div><h4>African Context</h4><p>We understand the unique cultural, economic, and social realities of professional life in Africa. Our programs are designed with this context in mind.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">02</div><div><h4>Evidence-Informed</h4><p>Our work is grounded in research, professional standards, and an honest understanding of what support can and cannot do.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">03</div><div><h4>Confidential &amp; Trust-Based</h4><p>Conversations involving mental health require dignity, privacy, respect, and appropriate professional boundaries. We take this seriously.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">04</div><div><h4>Strategic Partner</h4><p>We are not only a therapy company. We are a strategic mental-health and human wellbeing partner for Africa's private sector.</p></div></div>
+        <div class="process-item reveal"><div class="process-num">05</div><div><h4>Clear Boundaries</h4><p>We are clear about what we do — and what we don't. Where professional treatment is required, we emphasize referral to qualified mental-health professionals.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Let's start a <em>conversation.</em></h2>
+        <p class="section-lead">Tell us about your organization and what you're looking to build. We'll respond within 48 hours.</p>
+      </div>
+      <form class="form-grid" onsubmit="event.preventDefault();alert('Thank you. We will be in touch within 48 hours.')">
+        <div class="form-group"><label>Organization Name</label><input type="text" required></div>
+        <div class="form-group"><label>Your Name</label><input type="text" required></div>
+        <div class="form-group"><label>Email</label><input type="email" required></div>
+        <div class="form-group"><label>Role</label><input type="text" placeholder="e.g. HR Director, CEO"></div>
+        <div class="form-group full"><label>What are you looking to build?</label><textarea placeholder="Tell us about your organization and your goals..."></textarea></div>
+        <div class="form-group full"><button type="submit" class="btn-primary" style="justify-content:center">Send Message<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div class="page" id="page-contact">
+  <section class="page-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="hero-eyebrow">Get Support</div>
+        <h1>Choose the path that fits <em>you.</em></h1>
+        <p class="section-lead">Clear, confidential entry points — depending on who you are and what you need. We'll respond within 48 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-pathways">
+        <a class="cta-pathway reveal" onclick="selectPath('individual')"><div class="cta-pathway-label">Individuals</div><h4>I Need Support</h4><p>Personal mental-health and wellbeing support.</p></a>
+        <a class="cta-pathway reveal" onclick="selectPath('founder')"><div class="cta-pathway-label">Founders</div><h4>I'm a Founder</h4><p>Support designed for entrepreneurs and builders.</p></a>
+        <a class="cta-pathway reveal" onclick="selectPath('organization')"><div class="cta-pathway-label">Organizations</div><h4>I'm an Organization</h4><p>Corporate mental-health and wellbeing programs.</p></a>
+        <a class="cta-pathway reveal" onclick="selectPath('professional')"><div class="cta-pathway-label">Professionals</div><h4>I'm a Professional</h4><p>Mental-health practitioners and collaborators.</p></a>
+        <a class="cta-pathway reveal" onclick="selectPath('partner')"><div class="cta-pathway-label">Partners</div><h4>Partner With Us</h4><p>Strategic partnerships and collaborations.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2)">
+    <div class="container">
+      <div class="reveal" style="max-width:800px;margin:0 auto">
+        <div class="section-eyebrow" style="justify-content:center">Contact Form</div>
+        <h2 class="section-title" style="margin:0 auto 20px;text-align:center">Tell us how we can <em>help.</em></h2>
+        <p class="section-lead" style="margin:0 auto;text-align:center">All conversations are confidential. We'll respond within 48 hours.</p>
+      </div>
+      <form class="form-grid" style="max-width:800px;margin:40px auto 0" onsubmit="event.preventDefault();alert('Thank you. We will be in touch within 48 hours.')">
+        <div class="form-group"><label>I am a...</label>
+          <select id="contactType">
+            <option>Individual seeking support</option>
+            <option>Founder / Entrepreneur</option>
+            <option>CEO / Executive</option>
+            <option>HR / People Leader</option>
+            <option>Healthcare Professional</option>
+            <option>Mental Health Professional</option>
+            <option>Organization / Corporate</option>
+            <option>Partner / Collaborator</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Your Name</label><input type="text" required></div>
+        <div class="form-group"><label>Email</label><input type="email" required></div>
+        <div class="form-group"><label>Organization (optional)</label><input type="text"></div>
+        <div class="form-group full"><label>How can we help?</label><textarea placeholder="Tell us a bit about what you're looking for..."></textarea></div>
+        <div class="form-group full"><button type="submit" class="btn-primary" style="justify-content:center">Send Message<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button></div>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="reveal" style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-eyebrow" style="justify-content:center">Other Ways to Connect</div>
+        <h2 class="section-title" style="margin:0 auto 20px">Reach us <em>directly.</em></h2>
+      </div>
+      <div class="audience-grid" style="max-width:900px;margin:40px auto 0">
+        <div class="audience-card reveal" style="text-align:center"><div class="audience-icon" style="margin:0 auto 20px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3>Email</h3><p style="color:var(--terracotta);font-weight:500">hello@thoughtcircleafrica.com</p></div>
+        <div class="audience-card reveal" style="text-align:center"><div class="audience-icon" style="margin:0 auto 20px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><h3>LinkedIn</h3><p style="color:var(--terracotta);font-weight:500">Thought Circle Africa</p></div>
+        <div class="audience-card reveal" style="text-align:center"><div class="audience-icon" style="margin:0 auto 20px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><h3>Instagram</h3><p style="color:var(--terracotta);font-weight:500">@thoughtcircleafrica</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-section">
+    <div class="container">
+      <div class="reveal">
+        <h2>Let's build healthier minds. <em>Healthier workplaces.</em> A healthier Africa.</h2>
+        <p>Behind every business, institution, hospital, organization, and idea are people carrying the weight of making it happen. Thought Circle Africa exists to make sure those people are not forgotten.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EMERGENCY -->
+<div class="emergency">
+  <div class="container">
+    <div class="emergency-inner">
+      <div class="emergency-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <div><strong>If you or someone else is in immediate danger or experiencing a mental-health emergency,</strong> please contact your local emergency services or an appropriate qualified crisis service immediately. Thought Circle Africa is not a substitute for emergency medical care.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" data-page="home"><span class="logo-mark"></span><span>Thought Circle <em style="color:var(--terracotta);font-style:italic">Africa</em></span></a>
+        <p>A strategic mental-health and human wellbeing partner for Africa's private sector and professional communities.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul><li><a data-page="about">About</a></li><li><a data-page="mental-health">Mental Health</a></li><li><a data-page="programs">Our Approach</a></li><li><a data-page="resources">Resources</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>For You</h5>
+        <ul><li><a data-page="founders">For Founders</a></li><li><a data-page="organizations">For Organizations</a></li><li><a data-page="partner">Partner With Us</a></li><li><a data-page="contact">Get Support</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul><li><a>hello@thoughtcircleafrica.com</a></li><li><a>LinkedIn</a></li><li><a>Instagram</a></li><li><a data-page="resources">Newsletter</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Thought Circle Africa. All rights reserved.</div>
+      <div>Better people build better organizations.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Page routing
+  const pages = document.querySelectorAll('.page');
+  const navLinksAll = document.querySelectorAll('[data-page]');
+  const navLinksEl = document.getElementById('navLinks');
+
+  function showPage(pageId) {
+    pages.forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + pageId);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.toggle('active', a.dataset.page === pageId);
+      });
+      navLinksEl.classList.remove('open');
+      setTimeout(() => {
+        document.querySelectorAll('#page-' + pageId + ' .reveal').forEach(el => {
+          el.classList.remove('in');
+          io.observe(el);
+        });
+      }, 50);
+      // Update URL hash
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + pageId);
+      }
+    }
+  }
+
+  navLinksAll.forEach(el => {
+    el.addEventListener('click', (e) => {
+      const page = el.dataset.page;
+      if (page) {
+        e.preventDefault();
+        showPage(page);
+      }
+    });
+  });
+
+  // Mobile menu
+  const menuBtn = document.querySelector('.menu-btn');
+  menuBtn.addEventListener('click', () => {
+    navLinksEl.classList.toggle('open');
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Contact path selector
+  function selectPath(path) {
+    const select = document.getElementById('contactType');
+    if (select) {
+      const map = {
+        individual: 0, founder: 1, organization: 6, professional: 5, partner: 7
+      };
+      if (map[path] !== undefined) select.selectedIndex = map[path];
+    }
+    const form = document.querySelector('#page-contact form');
+    if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Handle initial hash
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash && document.getElementById('page-' + initialHash)) {
+    showPage(initialHash);
+  } else {
+    showPage('home');
+  }
+</script>
+
+</body>
+</html>

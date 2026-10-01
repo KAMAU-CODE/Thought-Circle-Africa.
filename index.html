@@ -6,7 +6,7 @@
 <title>Thought Circle Africa | Mental Health, Founder & Corporate Wellbeing</title>
 <meta name="description" content="Thought Circle Africa supports founders, leaders, healthcare professionals, employees, and organizations across Africa through mental-health education, wellbeing support, and human-centered workplace solutions. Think. Build. Heal." />
 
-<!-- Inline SVG favicon — gold circle + teal Africa shape. No file needed. -->
+<!-- Inline SVG favicon — gold circle + teal Africa shape -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23CA8D38'/%3E%3Cpath d='M32 12 L40 22 L44 34 L38 46 L42 52 L34 54 L28 46 L22 40 L20 30 L26 22 Z' fill='%2302343A'/%3E%3C/svg%3E" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.0/index.min.css" />
@@ -50,7 +50,6 @@
 
   .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Accessibility */
   .sr-only {
     position: absolute; width: 1px; height: 1px;
     padding: 0; margin: -1px; overflow: hidden;
@@ -73,12 +72,7 @@
     border: none;
     padding: 0;
   }
-  .tc-mark {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    display: block;
-  }
+  .tc-mark { width: 44px; height: 44px; flex-shrink: 0; display: block; }
   .tc-wordmark {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
@@ -98,8 +92,6 @@
     color: var(--gold);
     margin-top: 2px;
   }
-
-  /* Footer / dark background variant */
   .tc-logo.on-dark .tc-wordmark { color: var(--ivory); }
   .tc-logo.on-dark .tc-wordmark small { color: var(--gold-soft); }
 
@@ -178,15 +170,17 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    /* REPLACE WITH LOCAL FILE: assets/hero.jpg — moody dusk cityscape */
-    background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=85') center/cover no-repeat;
+    /* 🖼️ HERO BACKGROUND — Savannah sunset (acacia tree) */
+    /* REPLACE WITH LOCAL FILE: assets/hero.jpg */
+    background: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&q=85') center 60%/cover no-repeat;
     z-index: 0;
   }
   .hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(2, 52, 58, 0.92) 0%, rgba(7, 81, 82, 0.85) 50%, rgba(7, 81, 82, 0.7) 100%);
+    /* Warmer-toned overlay to harmonise with the sunset sky while keeping text legible */
+    background: linear-gradient(135deg, rgba(2, 52, 58, 0.92) 0%, rgba(7, 81, 82, 0.82) 45%, rgba(7, 81, 82, 0.55) 100%);
   }
   .hero-circles {
     position: absolute;
@@ -438,7 +432,7 @@
     overflow: hidden;
     box-shadow: var(--shadow-xl);
   }
-  .africa-visual img { width: 100%; height: 100%; object-fit: cover; }
+  .africa-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
   .africa-content h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--teal); margin-bottom: 1.5rem; line-height: 1.1; }
   .africa-content p { color: var(--muted); font-size: 1.05rem; margin-bottom: 1.25rem; line-height: 1.8; }
   .africa-list {
@@ -577,34 +571,42 @@
   }
   .founder-pressures li { padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: var(--charcoal); font-size: 0.92rem; }
   .founder-pressures li::before { content: '●'; position: absolute; left: 0; color: var(--terracotta); font-size: 0.5rem; top: 0.85rem; }
-  .founder-visual { position: relative; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
-  .founder-circle-outer {
-    position: absolute; width: 100%; height: 100%;
-    border-radius: 50%;
-    border: 1px solid rgba(202, 141, 56, 0.2);
-    animation: rotateSlow 40s linear infinite;
+
+  /* Founder image (replaces the old circle graphic) */
+  .founder-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
   }
-  .founder-circle-mid {
-    position: absolute; width: 75%; height: 75%;
-    border-radius: 50%;
-    border: 1px dashed rgba(7, 81, 82, 0.15);
-    animation: rotateSlow 30s linear infinite reverse;
+  .founder-visual img { width: 100%; height: 100%; object-fit: cover; }
+  .founder-visual::before {
+    content: '';
+    position: absolute; top: -20px; right: -20px;
+    width: 100px; height: 100px;
+    border-top: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    z-index: 2;
   }
-  .founder-circle-inner {
-    position: absolute; width: 50%; height: 50%;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold), var(--terracotta));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
+  .founder-visual::after {
+    content: '';
+    position: absolute; bottom: -20px; left: -20px;
+    width: 100px; height: 100px;
+    border-bottom: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+    z-index: 2;
+  }
+  .founder-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(to top, rgba(2, 52, 58, 0.9), transparent);
+    color: var(--ivory);
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    line-height: 1.3;
+    font-style: italic;
+    font-size: 1.05rem;
+    z-index: 3;
   }
 
   /* ===== THOUGHT CIRCLE ===== */
@@ -878,7 +880,11 @@
 
   /* ===== FINAL ===== */
   .final {
-    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 100%);
+    background:
+      linear-gradient(135deg, rgba(2, 52, 58, 0.93) 0%, rgba(7, 81, 82, 0.88) 100%),
+      /* 🖼️ FINAL SECTION BG — Nairobi skyline at dusk */
+      /* REPLACE WITH LOCAL FILE: assets/final.jpg */
+      url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&q=85') center/cover no-repeat;
     padding: 8rem 1.5rem;
     text-align: center;
     color: var(--white);
@@ -891,6 +897,7 @@
     width: 700px; height: 700px;
     background: radial-gradient(circle, rgba(202, 141, 56, 0.12) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
   }
   .final::after {
     content: '';
@@ -898,6 +905,7 @@
     width: 500px; height: 500px;
     background: radial-gradient(circle, rgba(229, 196, 138, 0.08) 0%, transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
   }
   .final-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
   .final h2 {
@@ -1146,7 +1154,7 @@
 <body>
 
 <!-- ============================================================
-     REUSABLE SVG LOGO — Africa globe mark (inline, no file)
+     REUSABLE SVG LOGOS — inline, no file dependencies
      ============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -1161,31 +1169,22 @@
 
     <!-- Six-figures community circle mark (Version 1, simplified) -->
     <symbol id="tc-figures" viewBox="0 0 200 200">
-      <!-- Outer ring -->
       <circle cx="100" cy="100" r="94" fill="none" stroke="#CA8D38" stroke-width="1.5"/>
       <circle cx="100" cy="100" r="86" fill="none" stroke="#075152" stroke-width="1"/>
-      <!-- Six figures arranged around the circle -->
       <g>
-        <!-- Top -->
         <circle cx="100" cy="30" r="12" fill="#462815"/>
         <path d="M88 52 Q100 42 112 52 L116 76 Q100 70 84 76 Z" fill="#B54D23"/>
-        <!-- Top-right -->
         <circle cx="160" cy="70" r="11" fill="#462815"/>
         <path d="M150 88 Q160 80 170 88 L174 108 Q160 104 146 108 Z" fill="#CA8D38"/>
-        <!-- Bottom-right -->
         <circle cx="160" cy="140" r="11" fill="#075152"/>
         <path d="M150 122 Q160 114 170 122 L174 142 Q160 138 146 142 Z" fill="#CA8D38"/>
-        <!-- Bottom -->
         <circle cx="100" cy="172" r="12" fill="#462815"/>
         <path d="M88 150 Q100 142 112 150 L116 176 Q100 168 84 176 Z" fill="#02343A"/>
-        <!-- Bottom-left -->
         <circle cx="40" cy="140" r="11" fill="#B54D23"/>
         <path d="M30 122 Q40 114 50 122 L54 142 Q40 138 26 142 Z" fill="#CA8D38"/>
-        <!-- Top-left -->
         <circle cx="40" cy="70" r="11" fill="#462815"/>
         <path d="M30 88 Q40 80 50 88 L54 108 Q40 104 26 108 Z" fill="#075152"/>
       </g>
-      <!-- Center flower/sunburst -->
       <circle cx="100" cy="100" r="22" fill="#FCFAF7"/>
       <g stroke="#CA8D38" stroke-width="1.2" stroke-linecap="round">
         <line x1="100" y1="80" x2="100" y2="70"/>
@@ -1230,7 +1229,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg" role="img" aria-label="Dusk cityscape representing Africa's growth"></div>
+  <div class="hero-bg" role="img" aria-label="Savannah at sunset — the landscape behind Africa's growth"></div>
   <div class="hero-circles" aria-hidden="true">
     <div class="hero-circle hero-circle-1"></div>
     <div class="hero-circle hero-circle-2"></div>
@@ -1255,8 +1254,9 @@
   <div class="container">
     <div class="intro-grid">
       <div class="intro-visual reveal">
-        <!-- REPLACE WITH LOCAL FILE: assets/intro.jpg — African professional, editorial -->
-        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=85" alt="African professionals collaborating in modern workspace" loading="lazy" />
+        <!-- 🖼️ INTRO IMAGE — Modern workspace with plants, city view -->
+        <!-- REPLACE WITH LOCAL FILE: assets/intro.jpg -->
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85" alt="Modern African workspace with natural light and city view" loading="lazy" />
       </div>
       <div class="intro-content reveal">
         <span class="kicker-inline">The Human Side of Progress</span>
@@ -1337,8 +1337,9 @@
         <p><strong style="color: var(--teal);">Africa is rising, and human wellbeing must rise with it.</strong></p>
       </div>
       <div class="africa-visual reveal">
-        <!-- REPLACE WITH LOCAL FILE: assets/africa.jpg — African cityscape at dusk -->
-        <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=85" alt="Modern African city skyline showing economic growth and progress" loading="lazy" />
+        <!-- 🖼️ AFRICA IMAGE — Nairobi CBD aerial / Silicon Savannah -->
+        <!-- REPLACE WITH LOCAL FILE: assets/africa.jpg -->
+        <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=85" alt="Nairobi city centre skyline — Africa building its future" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1455,8 +1456,9 @@
 <section class="section-white" style="padding: 0;">
   <div class="corp-cta-grid">
     <div class="corp-cta-visual">
-      <!-- REPLACE WITH LOCAL FILE: assets/partner.jpg — African executive, natural light -->
-      <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1000&q=85" alt="African executive team in modern boardroom meeting" loading="lazy" />
+      <!-- 🖼️ PARTNER IMAGE — B&W collaboration -->
+      <!-- REPLACE WITH LOCAL FILE: assets/partner.jpg -->
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1000&q=85" alt="Two professionals in conversation over laptops — partnership and support" loading="lazy" />
     </div>
     <div class="corp-cta-content">
       <span class="kicker-inline" style="color: var(--gold-soft);">Partner With Us</span>
@@ -1492,10 +1494,11 @@
         </ul>
         <button class="btn btn-dark" onclick="openModal('founder')">Explore Founder Support →</button>
       </div>
-      <div class="founder-visual reveal" aria-hidden="true">
-        <div class="founder-circle-outer"></div>
-        <div class="founder-circle-mid"></div>
-        <div class="founder-circle-inner">You are not alone in this journey.</div>
+      <div class="founder-visual reveal">
+        <!-- 🖼️ FOUNDER IMAGE — Stressed founder at desk -->
+        <!-- REPLACE WITH LOCAL FILE: assets/founder.jpg -->
+        <img src="https://images.unsplash.com/photo-1584448141569-69f342da535c?w=800&q=85" alt="A founder at his desk, hands on head — the unseen weight of building a business" loading="lazy" />
+        <div class="founder-caption">You are not alone in this journey.</div>
       </div>
     </div>
   </div>
@@ -1507,7 +1510,6 @@
     <div class="tc-grid">
       <div class="tc-visual reveal">
         <div class="tc-logo-wrap">
-          <!-- Six-figures community mark — inline SVG, no file needed -->
           <svg class="tc-figures-svg" role="img" aria-label="Thought Circle Africa — six figures in a circle"><use href="#tc-figures"/></svg>
         </div>
       </div>
@@ -1718,7 +1720,6 @@
         <button class="btn btn-dark" onclick="openModal('contact')">Get in Touch →</button>
       </div>
       <div class="about-visual reveal">
-        <!-- Six-figures community mark — inline SVG -->
         <svg class="about-logo-svg" role="img" aria-label="Thought Circle Africa logo"><use href="#tc-figures"/></svg>
         <div class="about-belief">Africa is building. We support the people building it.</div>
         <div class="about-tagline">Think. Build. Heal.</div>
@@ -1772,11 +1773,7 @@
       <div class="contact-form reveal">
         <h3>Send us a message</h3>
         <p>We'll respond within 24 hours.</p>
-        <!-- ⚙️  TO ENABLE FORM SUBMISSION:
-             1. Sign up at formspree.io (free)
-             2. Create a form, copy the endpoint (e.g. https://formspree.io/f/xyzabcd)
-             3. Replace YOUR_FORMSPREE_ENDPOINT below with it
-             Until then, the form shows a success message without sending. -->
+        <!-- ⚙️  Replace YOUR_FORMSPREE_ENDPOINT with your formspree.io endpoint -->
         <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'contact')">
           <div class="form-row">
             <div class="form-group">
@@ -2076,7 +2073,6 @@
 </div>
 
 <script>
-  // ---------- Navigation ----------
   function scrollToSection(id) {
     const el = document.getElementById(id);
     if (el) {
@@ -2092,7 +2088,6 @@
     document.getElementById('navMenu').classList.toggle('open');
   }
 
-  // ---------- Modals ----------
   function openModal(id) {
     const modal = document.getElementById('modal-' + id);
     if (modal) modal.classList.add('active');
@@ -2112,9 +2107,6 @@
     });
   });
 
-  // ---------- Forms ----------
-  // If Formspree endpoint is set, the form will POST normally.
-  // Otherwise (placeholder endpoint), we intercept and show success without sending.
   const FORMSPREE_PLACEHOLDER = 'YOUR_FORMSPREE_ENDPOINT';
 
   function handleForm(e, type) {
@@ -2123,13 +2115,10 @@
     const isPlaceholder = action.includes(FORMSPREE_PLACEHOLDER);
 
     if (isPlaceholder) {
-      // Demo mode — prevent send, show success UI
       e.preventDefault();
       showFormSuccess(form, type);
       return;
     }
-    // Real mode — let the browser submit to Formspree, then show success on return.
-    // (Formspree will redirect back or show its own confirmation.)
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
       btn.textContent = 'Sending…';
@@ -2169,10 +2158,8 @@
         btn.textContent = originalText;
       }, 2000);
     }
-    // Otherwise, browser POSTs normally to Formspree
   }
 
-  // ---------- Scroll Reveal ----------
   function initReveal() {
     const reveals = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -2190,7 +2177,6 @@
     reveals.forEach(el => observer.observe(el));
   }
 
-  // ---------- Nav shadow on scroll ----------
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
     if (!nav) return;
@@ -2198,7 +2184,6 @@
     else nav.classList.remove('scrolled');
   }, { passive: true });
 
-  // ---------- Init ----------
   document.addEventListener('DOMContentLoaded', initReveal);
   window.addEventListener('resize', () => {
     if (window.innerWidth > 960) {

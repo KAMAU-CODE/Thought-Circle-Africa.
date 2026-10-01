@@ -6,6 +6,7 @@
 <title>Thought Circle Africa | Mental Health, Founder & Corporate Wellbeing</title>
 <meta name="description" content="Thought Circle Africa supports founders, leaders, healthcare professionals, employees, and organizations across Africa through mental-health education, wellbeing support, and human-centered workplace solutions. Think. Build. Heal." />
 
+<!-- Inline SVG favicon — gold circle + teal Africa shape -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23CA8D38'/%3E%3Cpath d='M32 12 L40 22 L44 34 L38 46 L42 52 L34 54 L28 46 L22 40 L20 30 L26 22 Z' fill='%2302343A'/%3E%3C/svg%3E" />
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.0/index.min.css" />
@@ -169,18 +170,29 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    /* Savannah at sunset — "Silicon Savannah" */
-    background: url('https://images.unsplash.com/photo-T-LfvX-7IVg?w=1920&q=85') center 60%/cover no-repeat;
+    /* 🖼️ HERO BACKGROUND — Savannah sunset (acacia tree) */
+    /* REPLACE WITH LOCAL FILE: assets/hero.jpg */
+    background: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&q=85') center 60%/cover no-repeat;
     z-index: 0;
   }
   .hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
+    /* Warmer-toned overlay to harmonise with the sunset sky while keeping text legible */
     background: linear-gradient(135deg, rgba(2, 52, 58, 0.92) 0%, rgba(7, 81, 82, 0.82) 45%, rgba(7, 81, 82, 0.55) 100%);
   }
-  .hero-circles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-  .hero-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(202, 141, 56, 0.22); }
+  .hero-circles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(202, 141, 56, 0.22);
+  }
   .hero-circle-1 { width: 700px; height: 700px; top: -200px; right: -200px; animation: rotateSlow 80s linear infinite; }
   .hero-circle-2 { width: 500px; height: 500px; bottom: -150px; left: -150px; border-color: rgba(229, 196, 138, 0.12); animation: rotateSlow 60s linear infinite reverse; }
   .hero-circle-3 { width: 250px; height: 250px; top: 40%; left: 8%; border-color: rgba(202, 141, 56, 0.12); }
@@ -518,14 +530,14 @@
   .corp-card h3 { font-size: 1.25rem; color: var(--white); margin-bottom: 0.75rem; font-weight: 600; }
   .corp-card p { color: rgba(255, 255, 255, 0.75); font-size: 0.92rem; line-height: 1.65; }
 
-  /* ===== CORP CTA SPLIT — UNITY IMAGE ===== */
-  .corp-cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 540px; }
-  .corp-cta-visual { position: relative; overflow: hidden; min-height: 540px; }
+  /* ===== CORP CTA SPLIT ===== */
+  .corp-cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 500px; }
+  .corp-cta-visual { position: relative; overflow: hidden; min-height: 500px; }
   .corp-cta-visual img { width: 100%; height: 100%; object-fit: cover; }
   .corp-cta-visual::after {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(7, 81, 82, 0.35), transparent 70%);
+    background: linear-gradient(135deg, rgba(7, 81, 82, 0.3), transparent);
   }
   .corp-cta-content {
     background: var(--teal-deep);
@@ -560,6 +572,7 @@
   .founder-pressures li { padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: var(--charcoal); font-size: 0.92rem; }
   .founder-pressures li::before { content: '●'; position: absolute; left: 0; color: var(--terracotta); font-size: 0.5rem; top: 0.85rem; }
 
+  /* Founder image (replaces the old circle graphic) */
   .founder-visual {
     position: relative;
     aspect-ratio: 4/5;
@@ -588,73 +601,12 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 1.5rem 1.75rem;
-    background: linear-gradient(to top, rgba(2, 52, 58, 0.92), transparent);
+    background: linear-gradient(to top, rgba(2, 52, 58, 0.9), transparent);
     color: var(--ivory);
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.05rem;
     z-index: 3;
-  }
-
-  /* ===== UNITY BAND (between sections) ===== */
-  .unity-band {
-    position: relative;
-    padding: 6rem 1.5rem;
-    background: var(--ivory);
-    text-align: center;
-    overflow: hidden;
-  }
-  .unity-band-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-  .unity-band .kicker-inline { color: var(--gold); }
-  .unity-band h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--teal);
-    margin-bottom: 1.25rem;
-    line-height: 1.15;
-  }
-  .unity-band p {
-    color: var(--muted);
-    font-size: 1.08rem;
-    line-height: 1.8;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .unity-image {
-    margin: 3rem auto 0;
-    max-width: 1000px;
-    aspect-ratio: 16/8;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
-    position: relative;
-  }
-  .unity-image img { width: 100%; height: 100%; object-fit: cover; }
-  .unity-image::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(2, 52, 58, 0.15), rgba(202, 141, 56, 0.1));
-  }
-
-  /* ===== CULTURAL TEXTILE BAND ===== */
-  .textile-band {
-    position: relative;
-    height: 120px;
-    overflow: hidden;
-  }
-  .textile-band img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: saturate(0.85);
-  }
-  .textile-band::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, rgba(2, 52, 58, 0.55), rgba(2, 52, 58, 0.25) 50%, rgba(2, 52, 58, 0.55));
   }
 
   /* ===== THOUGHT CIRCLE ===== */
@@ -929,8 +881,10 @@
   /* ===== FINAL ===== */
   .final {
     background:
-      linear-gradient(135deg, rgba(2, 52, 58, 0.94) 0%, rgba(7, 81, 82, 0.9) 100%),
-      url('https://images.unsplash.com/photo-Lks7vei-eAg?w=1920&q=85') center/cover no-repeat;
+      linear-gradient(135deg, rgba(2, 52, 58, 0.93) 0%, rgba(7, 81, 82, 0.88) 100%),
+      /* 🖼️ FINAL SECTION BG — Nairobi skyline at dusk */
+      /* REPLACE WITH LOCAL FILE: assets/final.jpg */
+      url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&q=85') center/cover no-repeat;
     padding: 8rem 1.5rem;
     text-align: center;
     color: var(--white);
@@ -1177,7 +1131,6 @@
     .mh-list, .africa-list, .founder-pressures { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .contact-form { padding: 2rem; }
-    .textile-band { height: 80px; }
   }
   @media (max-width: 600px) {
     .footer-inner { grid-template-columns: 1fr; }
@@ -1194,7 +1147,7 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .hero-circle, .tc-logo-wrap::before, .tc-logo-wrap::after, .hero-center-dot { animation: none !important; }
+    .hero-circle, .founder-circle-outer, .founder-circle-mid, .tc-logo-wrap::before, .tc-logo-wrap::after, .hero-center-dot { animation: none !important; }
   }
 </style>
 </head>
@@ -1205,6 +1158,7 @@
      ============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <!-- Africa globe mark: gold circle + simplified Africa silhouette in teal -->
     <symbol id="tc-mark" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#CA8D38"/>
       <path d="M50 8 C55 15 62 20 66 30 C70 38 68 46 66 52 C64 58 68 62 70 68 C72 74 68 80 62 84 C56 88 50 90 44 88 C38 86 34 80 32 72 C30 64 28 56 30 46 C32 36 38 26 44 18 C46 14 48 10 50 8 Z"
@@ -1212,6 +1166,8 @@
       <path d="M46 26 C50 30 54 34 56 40 C58 46 56 50 54 52 C52 54 50 52 48 48 C46 44 44 38 44 32 C44 28 44 26 46 26 Z"
             fill="#CA8D38" opacity="0.35"/>
     </symbol>
+
+    <!-- Six-figures community circle mark (Version 1, simplified) -->
     <symbol id="tc-figures" viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="94" fill="none" stroke="#CA8D38" stroke-width="1.5"/>
       <circle cx="100" cy="100" r="86" fill="none" stroke="#075152" stroke-width="1"/>
@@ -1273,7 +1229,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg" role="img" aria-label="Savannah at golden hour — the landscape behind Africa's growth"></div>
+  <div class="hero-bg" role="img" aria-label="Savannah at sunset — the landscape behind Africa's growth"></div>
   <div class="hero-circles" aria-hidden="true">
     <div class="hero-circle hero-circle-1"></div>
     <div class="hero-circle hero-circle-2"></div>
@@ -1298,8 +1254,9 @@
   <div class="container">
     <div class="intro-grid">
       <div class="intro-visual reveal">
-        <!-- Intro — a person at a desk with a laptop -->
-        <img src="https://images.unsplash.com/photo-y7OPG1p31Fs?w=800&q=85" alt="A person working at a desk with a laptop — the quiet reality behind professional ambition" loading="lazy" />
+        <!-- 🖼️ INTRO IMAGE — Modern workspace with plants, city view -->
+        <!-- REPLACE WITH LOCAL FILE: assets/intro.jpg -->
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85" alt="Modern African workspace with natural light and city view" loading="lazy" />
       </div>
       <div class="intro-content reveal">
         <span class="kicker-inline">The Human Side of Progress</span>
@@ -1380,8 +1337,9 @@
         <p><strong style="color: var(--teal);">Africa is rising, and human wellbeing must rise with it.</strong></p>
       </div>
       <div class="africa-visual reveal">
-        <!-- Laptop on wooden table — the workspace where Africa builds -->
-        <img src="https://images.unsplash.com/photo-VWcPlbHglYc?w=800&q=85" alt="A laptop on a wooden table — the tools of Africa's builders" loading="lazy" />
+        <!-- 🖼️ AFRICA IMAGE — Nairobi CBD aerial / Silicon Savannah -->
+        <!-- REPLACE WITH LOCAL FILE: assets/africa.jpg -->
+        <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=800&q=85" alt="Nairobi city centre skyline — Africa building its future" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1432,24 +1390,6 @@
         <div class="tagline">Strategic wellbeing partnerships.</div>
         <p>Structured mental-health and wellbeing partnerships designed around organizational needs.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CULTURAL TEXTILE BAND — Ankara / Kitenge -->
-<div class="textile-band" role="img" aria-label="African textiles — the cultural fabric behind the continent's growth">
-  <img src="https://images.unsplash.com/photo-SfPOkp6-2eA?w=1600&q=80" alt="" loading="lazy" />
-</div>
-
-<!-- UNITY BAND — Bringing people together -->
-<section class="unity-band">
-  <div class="unity-band-inner reveal">
-    <span class="kicker-inline">United in Support</span>
-    <h2>No One Should Carry the Weight Alone.</h2>
-    <p>When people come together — colleagues, peers, founders, leaders — the weight of professional life becomes shared. Thought Circle Africa is a place where that gathering happens.</p>
-    <div class="unity-image">
-      <!-- Team members gripping wrists in unity -->
-      <img src="https://images.unsplash.com/photo-Y5bvRlcCx8k?w=1600&q=85" alt="Team members gripping wrists in unity — a symbol of shared support" loading="lazy" />
     </div>
   </div>
 </section>
@@ -1512,12 +1452,13 @@
   </div>
 </section>
 
-<!-- CORPORATE CTA SPLIT — UNITY IMAGE -->
+<!-- CORPORATE CTA SPLIT -->
 <section class="section-white" style="padding: 0;">
   <div class="corp-cta-grid">
     <div class="corp-cta-visual">
-      <!-- Team members gripping wrists in unity — partners coming together -->
-      <img src="https://images.unsplash.com/photo-Y5bvRlcCx8k?w=1200&q=85" alt="Partners coming together in unity — bringing people in to help" loading="lazy" />
+      <!-- 🖼️ PARTNER IMAGE — B&W collaboration -->
+      <!-- REPLACE WITH LOCAL FILE: assets/partner.jpg -->
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1000&q=85" alt="Two professionals in conversation over laptops — partnership and support" loading="lazy" />
     </div>
     <div class="corp-cta-content">
       <span class="kicker-inline" style="color: var(--gold-soft);">Partner With Us</span>
@@ -1554,8 +1495,9 @@
         <button class="btn btn-dark" onclick="openModal('founder')">Explore Founder Support →</button>
       </div>
       <div class="founder-visual reveal">
-        <!-- Founder struggling — hands on head at desk -->
-        <img src="https://images.unsplash.com/photo-bu5LEzvtAKY?w=800&q=85" alt="A founder at his desk, hands on head — the unseen weight of building a business" loading="lazy" />
+        <!-- 🖼️ FOUNDER IMAGE — Stressed founder at desk -->
+        <!-- REPLACE WITH LOCAL FILE: assets/founder.jpg -->
+        <img src="https://images.unsplash.com/photo-1584448141569-69f342da535c?w=800&q=85" alt="A founder at his desk, hands on head — the unseen weight of building a business" loading="lazy" />
         <div class="founder-caption">You are not alone in this journey.</div>
       </div>
     </div>
@@ -1831,6 +1773,7 @@
       <div class="contact-form reveal">
         <h3>Send us a message</h3>
         <p>We'll respond within 24 hours.</p>
+        <!-- ⚙️  Replace YOUR_FORMSPREE_ENDPOINT with your formspree.io endpoint -->
         <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'contact')">
           <div class="form-row">
             <div class="form-group">

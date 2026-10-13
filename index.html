@@ -1773,8 +1773,8 @@
       <div class="contact-form reveal">
         <h3>Send us a message</h3>
         <p>We'll respond within 24 hours.</p>
-        <!-- ⚙️  Replace YOUR_FORMSPREE_ENDPOINT with your formspree.io endpoint -->
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'contact')">
+        <!-- ✅ Formspree endpoint is set to xyekdqza -->
+        <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'contact')">
           <div class="form-row">
             <div class="form-group">
               <label for="contact-name">Name</label>
@@ -1901,7 +1901,7 @@
     <div>
       <h4>Stay Connected</h4>
       <p>Monthly insights on mental health, leadership wellbeing, and building healthier organizations.</p>
-      <form class="footer-newsletter" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleNewsletter(event)">
+      <form class="footer-newsletter" action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleNewsletter(event)">
         <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
         <button type="submit">Subscribe →</button>
       </form>
@@ -1932,7 +1932,7 @@
     <button class="modal-close" onclick="closeModal('support')" aria-label="Close">×</button>
     <h3 id="support-title">Get Support</h3>
     <p>Confidential. Non-judgmental. A safe space to speak. Tell us a little about what you're navigating, and we'll connect you with the right support.</p>
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'support')">
+    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'support')">
       <div class="form-group">
         <label for="sup-name">Your name (or preferred name)</label>
         <input id="sup-name" name="name" type="text" placeholder="How should we address you?" required />
@@ -1969,7 +1969,7 @@
     <button class="modal-close" onclick="closeModal('founder')" aria-label="Close">×</button>
     <h3 id="founder-title">Founder Support</h3>
     <p>Building a business shouldn't mean losing yourself. Tell us about your journey, and we'll connect you with support designed for founders.</p>
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'founder')">
+    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'founder')">
       <div class="form-group">
         <label for="fnd-name">Your name</label>
         <input id="fnd-name" name="name" type="text" placeholder="Full name" required />
@@ -2006,7 +2006,7 @@
     <button class="modal-close" onclick="closeModal('corporate')" aria-label="Close">×</button>
     <h3 id="corp-title">For Organizations</h3>
     <p>Let's discuss how Thought Circle Africa can support your workforce, leadership, and organizational wellbeing.</p>
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'corporate')">
+    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'corporate')">
       <div class="form-group">
         <label for="corp-name">Your name</label>
         <input id="corp-name" name="name" type="text" placeholder="Full name" required />
@@ -2043,7 +2043,7 @@
     <button class="modal-close" onclick="closeModal('contact')" aria-label="Close">×</button>
     <h3 id="contact-title">Get in Touch</h3>
     <p>Questions, ideas, or just want to say hello? We'd love to hear from you.</p>
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="handleForm(event, 'contact')">
+    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'contact')">
       <div class="form-group">
         <label for="cm-name">Your name</label>
         <input id="cm-name" name="name" type="text" placeholder="Full name" required />
@@ -2107,7 +2107,9 @@
     });
   });
 
-  const FORMSPREE_PLACEHOLDER = 'YOUR_FORMSPREE_ENDPOINT';
+  // ✅ Your real Formspree endpoint is now hardcoded in every form action.
+  //    The placeholder check is disabled so submissions go straight to Formspree.
+  const FORMSPREE_PLACEHOLDER = '__never_used__';
 
   function handleForm(e, type) {
     const form = e.target;
@@ -2119,6 +2121,7 @@
       showFormSuccess(form, type);
       return;
     }
+    // Real Formspree submission — show feedback and let it send
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
       btn.textContent = 'Sending…';
@@ -2157,6 +2160,18 @@
         form.reset();
         btn.textContent = originalText;
       }, 2000);
+    } else {
+      // Real Formspree submission
+      const btn = form.querySelector('button');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending…';
+      setTimeout(() => {
+        btn.textContent = '✓ Subscribed!';
+        setTimeout(() => {
+          form.reset();
+          btn.textContent = originalText;
+        }, 2000);
+      }, 500);
     }
   }
 

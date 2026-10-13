@@ -170,8 +170,6 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    /* 🖼️ HERO BACKGROUND — Savannah sunset (acacia tree) */
-    /* REPLACE WITH LOCAL FILE: assets/hero.jpg */
     background: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&q=85') center 60%/cover no-repeat;
     z-index: 0;
   }
@@ -179,7 +177,6 @@
     content: '';
     position: absolute;
     inset: 0;
-    /* Warmer-toned overlay to harmonise with the sunset sky while keeping text legible */
     background: linear-gradient(135deg, rgba(2, 52, 58, 0.92) 0%, rgba(7, 81, 82, 0.82) 45%, rgba(7, 81, 82, 0.55) 100%);
   }
   .hero-circles {
@@ -572,7 +569,6 @@
   .founder-pressures li { padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: var(--charcoal); font-size: 0.92rem; }
   .founder-pressures li::before { content: '●'; position: absolute; left: 0; color: var(--terracotta); font-size: 0.5rem; top: 0.85rem; }
 
-  /* Founder image (replaces the old circle graphic) */
   .founder-visual {
     position: relative;
     aspect-ratio: 4/5;
@@ -882,8 +878,6 @@
   .final {
     background:
       linear-gradient(135deg, rgba(2, 52, 58, 0.93) 0%, rgba(7, 81, 82, 0.88) 100%),
-      /* 🖼️ FINAL SECTION BG — Nairobi skyline at dusk */
-      /* REPLACE WITH LOCAL FILE: assets/final.jpg */
       url('https://images.unsplash.com/photo-1611144727915-ef30a08aaeb3?w=1920&q=85') center/cover no-repeat;
     padding: 8rem 1.5rem;
     text-align: center;
@@ -1158,7 +1152,6 @@
      ============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- Africa globe mark: gold circle + simplified Africa silhouette in teal -->
     <symbol id="tc-mark" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#CA8D38"/>
       <path d="M50 8 C55 15 62 20 66 30 C70 38 68 46 66 52 C64 58 68 62 70 68 C72 74 68 80 62 84 C56 88 50 90 44 88 C38 86 34 80 32 72 C30 64 28 56 30 46 C32 36 38 26 44 18 C46 14 48 10 50 8 Z"
@@ -1167,7 +1160,6 @@
             fill="#CA8D38" opacity="0.35"/>
     </symbol>
 
-    <!-- Six-figures community circle mark (Version 1, simplified) -->
     <symbol id="tc-figures" viewBox="0 0 200 200">
       <circle cx="100" cy="100" r="94" fill="none" stroke="#CA8D38" stroke-width="1.5"/>
       <circle cx="100" cy="100" r="86" fill="none" stroke="#075152" stroke-width="1"/>
@@ -1254,8 +1246,6 @@
   <div class="container">
     <div class="intro-grid">
       <div class="intro-visual reveal">
-        <!-- 🖼️ INTRO IMAGE — Modern workspace with plants, city view -->
-        <!-- REPLACE WITH LOCAL FILE: assets/intro.jpg -->
         <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=85" alt="Modern African workspace with natural light and city view" loading="lazy" />
       </div>
       <div class="intro-content reveal">
@@ -1337,8 +1327,6 @@
         <p><strong style="color: var(--teal);">Africa is rising, and human wellbeing must rise with it.</strong></p>
       </div>
       <div class="africa-visual reveal">
-        <!-- 🖼️ AFRICA IMAGE — Nairobi CBD aerial / Silicon Savannah -->
-        <!-- REPLACE WITH LOCAL FILE: assets/africa.jpg -->
         <img src="https://images.unsplash.com/photo-1611144727915-ef30a08aaeb3?w=800&q=85" alt="Nairobi city centre skyline — Africa building its future" loading="lazy" />
       </div>
     </div>
@@ -1456,8 +1444,6 @@
 <section class="section-white" style="padding: 0;">
   <div class="corp-cta-grid">
     <div class="corp-cta-visual">
-      <!-- 🖼️ PARTNER IMAGE — B&W collaboration -->
-      <!-- REPLACE WITH LOCAL FILE: assets/partner.jpg -->
       <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1000&q=85" alt="Two professionals in conversation over laptops — partnership and support" loading="lazy" />
     </div>
     <div class="corp-cta-content">
@@ -1495,8 +1481,6 @@
         <button class="btn btn-dark" onclick="openModal('founder')">Explore Founder Support →</button>
       </div>
       <div class="founder-visual reveal">
-        <!-- 🖼️ FOUNDER IMAGE — Stressed founder at desk -->
-        <!-- REPLACE WITH LOCAL FILE: assets/founder.jpg -->
         <img src="https://images.unsplash.com/photo-1758874572368-bcc68a743de4?w=800&q=85" alt="A founder at his desk, hands on head — the unseen weight of building a business" loading="lazy" />
         <div class="founder-caption">You are not alone in this journey.</div>
       </div>
@@ -1773,8 +1757,8 @@
       <div class="contact-form reveal">
         <h3>Send us a message</h3>
         <p>We'll respond within 24 hours.</p>
-        <!-- ✅ Formspree endpoint is set to xyekdqza -->
-        <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'contact')">
+        <!-- ✅ Form uses mailto: -->
+        <form action="mailto:hello@thoughtcircleafrica.com" method="POST" enctype="text/plain" onsubmit="handleForm(event, 'contact')">
           <div class="form-row">
             <div class="form-group">
               <label for="contact-name">Name</label>
@@ -1901,7 +1885,7 @@
     <div>
       <h4>Stay Connected</h4>
       <p>Monthly insights on mental health, leadership wellbeing, and building healthier organizations.</p>
-      <form class="footer-newsletter" action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleNewsletter(event)">
+      <form class="footer-newsletter" action="mailto:hello@thoughtcircleafrica.com" method="POST" enctype="text/plain" onsubmit="handleNewsletter(event)">
         <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
         <button type="submit">Subscribe →</button>
       </form>
@@ -1932,7 +1916,7 @@
     <button class="modal-close" onclick="closeModal('support')" aria-label="Close">×</button>
     <h3 id="support-title">Get Support</h3>
     <p>Confidential. Non-judgmental. A safe space to speak. Tell us a little about what you're navigating, and we'll connect you with the right support.</p>
-    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'support')">
+    <form action="mailto:hello@thoughtcircleafrica.com" method="POST" enctype="text/plain" onsubmit="handleForm(event, 'support')">
       <div class="form-group">
         <label for="sup-name">Your name (or preferred name)</label>
         <input id="sup-name" name="name" type="text" placeholder="How should we address you?" required />
@@ -1969,7 +1953,7 @@
     <button class="modal-close" onclick="closeModal('founder')" aria-label="Close">×</button>
     <h3 id="founder-title">Founder Support</h3>
     <p>Building a business shouldn't mean losing yourself. Tell us about your journey, and we'll connect you with support designed for founders.</p>
-    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'founder')">
+    <form action="mailto:hello@thoughtcircleafrica.com" method="POST" enctype="text/plain" onsubmit="handleForm(event, 'founder')">
       <div class="form-group">
         <label for="fnd-name">Your name</label>
         <input id="fnd-name" name="name" type="text" placeholder="Full name" required />
@@ -2006,7 +1990,7 @@
     <button class="modal-close" onclick="closeModal('corporate')" aria-label="Close">×</button>
     <h3 id="corp-title">For Organizations</h3>
     <p>Let's discuss how Thought Circle Africa can support your workforce, leadership, and organizational wellbeing.</p>
-    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'corporate')">
+    <form action="mailto:hello@thoughtcircleafrica.com" method="POST" enctype="text/plain" onsubmit="handleForm(event, 'corporate')">
       <div class="form-group">
         <label for="corp-name">Your name</label>
         <input id="corp-name" name="name" type="text" placeholder="Full name" required />
@@ -2043,7 +2027,7 @@
     <button class="modal-close" onclick="closeModal('contact')" aria-label="Close">×</button>
     <h3 id="contact-title">Get in Touch</h3>
     <p>Questions, ideas, or just want to say hello? We'd love to hear from you.</p>
-    <form action="https://formspree.io/f/xyekdqza" method="POST" onsubmit="handleForm(event, 'contact')">
+    <form action="mailto:hello@thoughtcircleafrica.com" method="POST" enctype="text/plain" onsubmit="handleForm(event, 'contact')">
       <div class="form-group">
         <label for="cm-name">Your name</label>
         <input id="cm-name" name="name" type="text" placeholder="Full name" required />
@@ -2107,72 +2091,48 @@
     });
   });
 
-  // ✅ Your real Formspree endpoint is now hardcoded in every form action.
-  //    The placeholder check is disabled so submissions go straight to Formspree.
-  const FORMSPREE_PLACEHOLDER = '__never_used__';
+  // ===== Mailto form handling =====
+  // Since we use mailto: the browser opens the user's email client.
+  // We just show a thank-you message after a short delay.
 
   function handleForm(e, type) {
     const form = e.target;
-    const action = form.getAttribute('action') || '';
-    const isPlaceholder = action.includes(FORMSPREE_PLACEHOLDER);
-
-    if (isPlaceholder) {
-      e.preventDefault();
-      showFormSuccess(form, type);
-      return;
-    }
-    // Real Formspree submission — show feedback and let it send
+    // Let the mailto: action run — do not prevent default.
+    // Show a confirmation toast/state on the button.
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
+      const originalText = btn.dataset.originalText || btn.textContent;
+      btn.dataset.originalText = originalText;
+      btn.textContent = 'Opening your email app…';
+      setTimeout(() => {
+        btn.textContent = '✓ Ready to send — check your email app.';
+        btn.style.background = 'var(--teal)';
+        setTimeout(() => {
+          const modal = form.closest('.modal');
+          if (modal) {
+            const id = modal.id.replace('modal-', '');
+            closeModal(id);
+          }
+          form.reset();
+          btn.textContent = originalText;
+          btn.style.background = '';
+        }, 2500);
+      }, 600);
     }
-  }
-
-  function showFormSuccess(form, type) {
-    const btn = form.querySelector('button[type="submit"]');
-    if (!btn) return;
-    const originalText = btn.dataset.originalText || btn.textContent;
-    btn.dataset.originalText = originalText;
-    btn.textContent = '✓ Thank you. We\'ll be in touch.';
-    btn.style.background = 'var(--teal)';
-    setTimeout(() => {
-      const modal = form.closest('.modal');
-      if (modal) {
-        const id = modal.id.replace('modal-', '');
-        closeModal(id);
-      }
-      form.reset();
-      btn.textContent = originalText;
-      btn.style.background = '';
-    }, 2000);
   }
 
   function handleNewsletter(e) {
     const form = e.target;
-    const action = form.getAttribute('action') || '';
-    if (action.includes(FORMSPREE_PLACEHOLDER)) {
-      e.preventDefault();
-      const btn = form.querySelector('button');
-      const originalText = btn.textContent;
-      btn.textContent = '✓ Subscribed!';
+    const btn = form.querySelector('button');
+    const originalText = btn.textContent;
+    btn.textContent = 'Opening your email app…';
+    setTimeout(() => {
+      btn.textContent = '✓ Ready to send.';
       setTimeout(() => {
         form.reset();
         btn.textContent = originalText;
-      }, 2000);
-    } else {
-      // Real Formspree submission
-      const btn = form.querySelector('button');
-      const originalText = btn.textContent;
-      btn.textContent = 'Sending…';
-      setTimeout(() => {
-        btn.textContent = '✓ Subscribed!';
-        setTimeout(() => {
-          form.reset();
-          btn.textContent = originalText;
-        }, 2000);
-      }, 500);
-    }
+      }, 2500);
+    }, 600);
   }
 
   function initReveal() {
